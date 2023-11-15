@@ -2,7 +2,7 @@
 
 namespace OnlineFood.Domain.InterfaceRepositories.Users;
 
-public interface IUserRepository : IGenericRepository<User2>
+public interface IUserRepository : IGenericRepository<User>
 {
 
 }

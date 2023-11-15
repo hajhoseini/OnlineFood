@@ -9,5 +9,5 @@ public class OnlineFoodDBConext : DbContext
     {
     }
 
-    public DbSet<User2> Users { get; set; }
+    public DbSet<User> Users { get; set; }
 }

@@ -31,7 +31,7 @@ public class CreateUserService : ICreateUserService
                 };
             }
 
-            var user = _mapper.Map<User2>(requestDto);
+            var user = _mapper.Map<User>(requestDto);
             var result = await _userRepository.Create(user);
             return new ResultDto<CreateUserResponseDto>()
             {
