@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>پنل مدیریت | @ViewData["Title"]</title>
+    <title>پنل رستوران دار | @ViewData["Title"]</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/AdminTemplate/plugins/font-awesome/css/font-awesome.min.css">
@@ -159,7 +159,7 @@
             <a href="/" class="brand-link">
                 <img src="/AdminTemplate/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                      style="opacity: .8">
-                <span class="brand-text font-weight-light">پنل مدیریت</span>
+                <span class="brand-text font-weight-light">پنل رستوران دار</span>
             </a>
 
             <!-- Sidebar -->
@@ -185,7 +185,7 @@
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fa fa-pie-chart"></i>
                                     <p>
-                                        فرم ها
+                                        رستوران من
                                         <i class="right fa fa-angle-left"></i>
                                     </p>
                                 </a>
@@ -193,52 +193,110 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="User" asp-action="Index">
+                                           asp-area="Restaurant" asp-controller="Profile" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>کاربران</p>
+                                            <p>پروفایل</p>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="Restaurant" asp-action="Index">
+                                           asp-area="Restaurant" asp-controller="Wallet" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>رستوران ها</p>
-                                        </a>
-                                    </li>
-                                   
-                                    <li class="nav-item">
-                                        <a class="nav-link"
-                                           asp-area="Admin" asp-controller="RestaurantCategory" asp-action="Index">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>دسته بندی رستوران</p>
+                                            <p>کیف پول</p>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="MenuCategory" asp-action="Index">
+                                           asp-area="Restaurant" asp-controller="Message" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>دسته بندی منو</p>
+                                            <p>پیام های دریافتی</p>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="Message" asp-action="Index">
+                                           asp-area="Restaurant" asp-controller="ChanePassword" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>پیام های سامانه</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link"
-                                           asp-area="Admin" asp-controller="News" asp-action="Index">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>اخبار و اعلان ها</p>
+                                            <p>تغییر رمز عبور</p>
                                         </a>
                                     </li>
                                     
+                                </ul>
+                            </li>
+
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-pie-chart"></i>
+                                    <p>
+                                        مدیریت رستوران
+                                        <i class="right fa fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           asp-area="Restaurant" asp-controller="WorkTime" asp-action="Index">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>مدیریت ساعات کاری</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           asp-area="Restaurant" asp-controller="Menu" asp-action="Index">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>مدیریت منو</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           asp-area="Restaurant" asp-controller="Order" asp-action="Index">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>مدیریت سفارش ها</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-pie-chart"></i>
+                                    <p>
+                                        گزارش ها
+                                        <i class="right fa fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           asp-area="Restaurant" asp-controller="Order" asp-action="Index">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>سفارش ها</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           asp-area="Restaurant" asp-controller="Transaction" asp-action="Index">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>تراکنش ها</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           asp-area="Restaurant" asp-controller="Comment" asp-action="Index">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>دیدگاه ها</p>
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </li>
                         </ul>
