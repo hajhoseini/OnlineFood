@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineFood.Common\OnlineFood.Common.csproj" />
+  </ItemGroup>
+
 </Project>

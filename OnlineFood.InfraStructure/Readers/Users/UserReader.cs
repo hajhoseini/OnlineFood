@@ -10,4 +10,3 @@ public class UserReader : GenericReader<User>, IUserReader
     {
     }
 }
-
