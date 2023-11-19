@@ -1,13 +1,12 @@
-﻿namespace OnlineFood.Common.Enums
+﻿namespace OnlineFood.Common.Enums;
+
+public enum WeekDaysEnum
 {
-    public enum WeekDaysEnum
-    {
-        saturday,
-        sunday,
-        monday,
-        teusday,
-        wednesday,
-        thursday,
-        friday
-    }
+    Saturday,
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday
 }
