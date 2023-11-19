@@ -2,7 +2,7 @@
 
 namespace OnlineFood.Domain.Entities.Menu
 {
-    internal class Menu : BaseEntity
+    public class Menu : BaseEntity
     {
         public string Title {  get; set; }
         public string Description { get; set; }
