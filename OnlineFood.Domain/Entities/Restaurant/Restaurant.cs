@@ -3,7 +3,7 @@ using OnlineFood.Domain.Entities.Base;
 
 namespace OnlineFood.Domain.Entities.Resturant
 {
-    public class Resturant : BaseEntity
+    public class Restaurant : BaseEntity
     {
         public string Name { get; set; }
         public string Banner { get; set; }
