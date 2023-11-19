@@ -8,6 +8,15 @@ namespace OnlineFood.Domain.Entities.Resturant
         public string Name { get; set; }
         public string Banner { get; set; }
         public int UserId { get; set; }
+        public int CategoryId { get; set; }
+        public string ManagerFullName { get; set; }
+        public string ManagerPhoneNumber { get; set; }
+        public int NumberOfBranches { get; set; }
+        public InterduceWayEnum InterducedWay { get; set; }
+        public string Provice {  get; set; }
+        public string City {  get; set; }
+        public string SignUpDate {  get; set; }
+        public bool DoesAcceptedByAdmin {  get; set; }
         public int WorkTimeId { get; set; }
         public int SocialMediaId { get; set; }
         public string PhoneNumber { get; set; }
