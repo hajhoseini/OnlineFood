@@ -1,6 +1,8 @@
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineFood.Application;
+using OnlineFood.Domain.Entities.Users;
 using OnlineFood.InfraStructure;
 using OnlineFood.InfraStructure.DBContext;
 
@@ -17,9 +19,20 @@ builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddIdentity<User, Role>(options =>
+    {
+        options.Password.RequireDigit = true;
+        options.Password.RequiredLength = 8;
+        options.Stores.ProtectPersonalData = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireLowercase = false;
+
+    }).AddEntityFrameworkStores<OnlineFoodDBConext>()
+    .AddDefaultTokenProviders();
+
 
 var app = builder.Build();
-
+ 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -30,11 +43,11 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseCors();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseAuthentication();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

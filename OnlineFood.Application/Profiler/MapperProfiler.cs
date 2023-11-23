@@ -19,6 +19,7 @@ public class Mapperprofiler : Profile
     public Mapperprofiler()
     {
         CreateMap<User, UserDto>().ReverseMap();
+        CreateMap<User, LoginDto>().ReverseMap();
         CreateMap<Comment, CommentDto>().ReverseMap();
         CreateMap<Customer, CustomerDto>().ReverseMap();
         CreateMap<Favorite, FavoriteDto>().ReverseMap();

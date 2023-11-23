@@ -4,7 +4,8 @@ namespace OnlineFood.Application.Services.Users.Commands;
 
 public interface IUserCommandService
 {
-    Task<bool> Create(UserDto dto);
-    Task<bool> Update(UserDto dto);
-    Task<bool> Delete(UserDto dto);
+    Task<bool> Login(LoginDto dto);
+    Task<bool> Register(RegisterViewModel dto);
+    Task<bool> SignOutAsync();
+
 }

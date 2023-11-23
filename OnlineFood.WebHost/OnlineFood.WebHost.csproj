@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.14">
       <PrivateAssets>all</PrivateAssets>
@@ -22,5 +23,9 @@
     <ProjectReference Include="..\OnlineFood.Domain\OnlineFood.Domain.csproj" />
     <ProjectReference Include="..\OnlineFood.InfraStructure\OnlineFood.InfraStructure.csproj" />
   </ItemGroup>
+
+
+
+
 
 </Project>
