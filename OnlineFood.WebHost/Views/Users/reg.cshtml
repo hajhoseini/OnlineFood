@@ -1,0 +1,18 @@
+﻿@model OnlineFood.Application.Dtos.Users.RegisterViewModel
+
+<form asp-controller="Users" asp-action="reg" method="post">
+    <label asp-for="UserName"></label>
+    <input asp-for="UserName" />
+    <span asp-validation-for="UserName"></span>
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+
+    <label asp-for="ConfirmPassword"></label>
+    <input asp-for="ConfirmPassword" />
+
+    <button type="submit">Register</button>
+</form>
