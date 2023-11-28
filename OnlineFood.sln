@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{54EAA563-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{442ED365-ABC1-4CCE-AE13-FFCDB2CECBD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineFood.Domain", "OnlineFood.Domain\OnlineFood.Domain.csproj", "{CBC290D0-1925-4E72-B28D-B1FC267D0FD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineFood.Domain", "OnlineFood.Domain\OnlineFood.Domain.csproj", "{CBC290D0-1925-4E72-B28D-B1FC267D0FD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineFood.Common", "OnlineFood.Common\OnlineFood.Common.csproj", "{19FEFFB2-9D1F-404F-B7EE-380320BA5B8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineFood.Common", "OnlineFood.Common\OnlineFood.Common.csproj", "{19FEFFB2-9D1F-404F-B7EE-380320BA5B8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineFood.Application", "OnlineFood.Application\OnlineFood.Application.csproj", "{7ED425C7-18E7-43AA-8B74-11B0BC67DB90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineFood.Application", "OnlineFood.Application\OnlineFood.Application.csproj", "{7ED425C7-18E7-43AA-8B74-11B0BC67DB90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineFood.InfraStructure", "OnlineFood.InfraStructure\OnlineFood.InfraStructure.csproj", "{79C4E6EB-4D3E-4742-BCC7-A0AC9D8D05F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineFood.InfraStructure", "OnlineFood.InfraStructure\OnlineFood.InfraStructure.csproj", "{79C4E6EB-4D3E-4742-BCC7-A0AC9D8D05F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineFood.WebHost", "OnlineFood.WebHost\OnlineFood.WebHost.csproj", "{1B353E3B-D93B-4CB5-AFF8-E5AC3C2D4B94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineFood.WebHost", "OnlineFood.WebHost\OnlineFood.WebHost.csproj", "{1B353E3B-D93B-4CB5-AFF8-E5AC3C2D4B94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
