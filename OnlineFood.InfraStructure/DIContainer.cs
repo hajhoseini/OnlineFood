@@ -13,6 +13,7 @@ using OnlineFood.Domain.IReaders.Favorites;
 using OnlineFood.Domain.IReaders.OrderItems;
 using OnlineFood.Domain.IReaders.Orders;
 using OnlineFood.Domain.IReaders.Users;
+using OnlineFood.Domain.IRepositories;
 using OnlineFood.InfraStructure.Readers;
 using OnlineFood.InfraStructure.Readers.Comments;
 using OnlineFood.InfraStructure.Readers.Customers;
@@ -50,6 +51,8 @@ public static class DIContainer
         service.AddScoped<IOrderItemReader, OrderItemReader>();
         service.AddScoped<IOrderReader, OrderReader>();
 
-        return service;
+		service.AddScoped<IUnitOfWork, UnitOfWork>();
+
+		return service;
     }
 }
