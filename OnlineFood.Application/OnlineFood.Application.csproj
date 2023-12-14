@@ -18,8 +18,4 @@
     <ProjectReference Include="..\OnlineFood.Domain\OnlineFood.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CRUD\AddressCRUD\Queries\" />
-  </ItemGroup>
-
 </Project>
