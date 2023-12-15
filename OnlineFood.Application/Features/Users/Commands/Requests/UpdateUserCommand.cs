@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using OnlineFood.Domain.Entities.Users;
 
 namespace OnlineFood.Application.Features.Users.Commands.Requests;
 
