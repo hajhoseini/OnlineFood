@@ -1,6 +1,8 @@
 
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OnlineFood.Application;
+using OnlineFood.Application.Features.Users.Commands.RequestHandlers;
 using OnlineFood.InfraStructure;
 using OnlineFood.InfraStructure.DBContext;
 
@@ -17,6 +19,8 @@ builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 
 var app = builder.Build();
 
