@@ -38,7 +38,7 @@ public class UnitOfWork : IUnitOfWork
 		}
 	};
 
-	public IGenericRepository<TEntity> GenericReposity<TEntity>() where TEntity : BaseEntity
+	public IGenericRepository<TEntity> GenericReposity<TEntity>() where TEntity : class
 	{
 		if (_repositories == null)
 		{
