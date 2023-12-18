@@ -5,7 +5,7 @@ namespace OnlineFood.Domain.IRepositories;
 
 public interface IUnitOfWork : IDisposable
 {
-	IGenericRepository<TEntity> GenericReposity<TEntity>() where TEntity : BaseEntity;
+	IGenericRepository<TEntity> GenericReposity<TEntity>() where TEntity : class;
 
 	int Complete();
 }
