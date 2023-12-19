@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Customers;
-using OnlineFood.Application.Services.Customers.Commands;
-using OnlineFood.Application.Services.Customers.Queries;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using OnlineFood.Application.Features.Customers.Commands.Requests;
+using OnlineFood.Application.Features.Customers.Queries.Requests;
 
 namespace OnlineFood.WebHost.Controllers;
 
@@ -9,48 +9,46 @@ namespace OnlineFood.WebHost.Controllers;
 [Route("[controller]")]
 public class CustomerController : ControllerBase
 {
-    private readonly ICustomerCommandService _CustomerCommandService;
-    private readonly ICustomerQueryService _CustomerQueryService;
+	private readonly IMediator mediator;
 
+	public CustomerController(IMediator mediator)
+	{
+		this.mediator = mediator;
+	}
 
-    public CustomerController(ICustomerCommandService CustomerCommandService, ICustomerQueryService CustomerQueryService)
-    {
-        _CustomerCommandService = CustomerCommandService;
-        _CustomerQueryService = CustomerQueryService;
-    }
+	[HttpGet]
+	public async Task<IActionResult> GetListCustomers([FromBody] GetListCustomersQuery query)
+	{
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPost]
-    public async Task<IActionResult> Create(CustomerDto dto)
-    {
-        var result = await _CustomerCommandService.Create(dto);
-        return Ok(result);
-    }
+	[HttpGet("{id}")]
+	public async Task<IActionResult> GetCustomerById(int id)
+	{
+		GetCustomerQuery query = new GetCustomerQuery() { Id = id };
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPut]
-    public async Task<IActionResult> Update(CustomerDto dto)
-    {
-        var result = await _CustomerCommandService.Update(dto);
-        return Ok(result);
-    }
+	[HttpPost]
+	public async Task<IActionResult> CreateCustomer([FromBody] CreateCustomerCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpDelete]
-    public async Task<IActionResult> Delete(CustomerDto dto)
-    {
-        var result = await _CustomerCommandService.Delete(dto);
-        return Ok(result);
-    }
+	[HttpPut]
+	public async Task<IActionResult> UpdateCustomer([FromBody] UpdateCustomerCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> Get(int id)
-    {
-        var result = await _CustomerQueryService.GetById(id);
-        return Ok(result);
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var result = await _CustomerQueryService.GetList();
-        return Ok(result);
-    }
+	[HttpDelete]
+	public async Task<IActionResult> DeleteCustomer([FromBody] DeleteCustomerCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 }

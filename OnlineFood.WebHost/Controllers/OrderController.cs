@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Orders;
-using OnlineFood.Application.Services.Orders.Commands;
-using OnlineFood.Application.Services.Orders.Queries;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using OnlineFood.Application.Features.Orders.Commands.Requests;
+using OnlineFood.Application.Features.Orders.Queries.Requests;
 
 namespace OnlineFood.WebHost.Controllers;
 
@@ -9,48 +9,46 @@ namespace OnlineFood.WebHost.Controllers;
 [Route("[controller]")]
 public class OrderController : ControllerBase
 {
-    private readonly IOrderCommandService _OrderCommandService;
-    private readonly IOrderQueryService _OrderQueryService;
+	private readonly IMediator mediator;
 
+	public OrderController(IMediator mediator)
+	{
+		this.mediator = mediator;
+	}
 
-    public OrderController(IOrderCommandService OrderCommandService, IOrderQueryService OrderQueryService)
-    {
-        _OrderCommandService = OrderCommandService;
-        _OrderQueryService = OrderQueryService;
-    }
+	[HttpGet]
+	public async Task<IActionResult> GetListOrders([FromBody] GetListOrdersQuery query)
+	{
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPost]
-    public async Task<IActionResult> Create(OrderDto dto)
-    {
-        var result = await _OrderCommandService.Create(dto);
-        return Ok(result);
-    }
+	[HttpGet("{id}")]
+	public async Task<IActionResult> GetOrderById(int id)
+	{
+		GetOrderQuery query = new GetOrderQuery() { Id = id };
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPut]
-    public async Task<IActionResult> Update(OrderDto dto)
-    {
-        var result = await _OrderCommandService.Update(dto);
-        return Ok(result);
-    }
+	[HttpPost]
+	public async Task<IActionResult> CreateOrder([FromBody] CreateOrderCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpDelete]
-    public async Task<IActionResult> Delete(OrderDto dto)
-    {
-        var result = await _OrderCommandService.Delete(dto);
-        return Ok(result);
-    }
+	[HttpPut]
+	public async Task<IActionResult> UpdateOrder([FromBody] UpdateOrderCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> Get(int id)
-    {
-        var result = await _OrderQueryService.GetById(id);
-        return Ok(result);
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var result = await _OrderQueryService.GetList();
-        return Ok(result);
-    }
+	[HttpDelete]
+	public async Task<IActionResult> DeleteOrder([FromBody] DeleteOrderCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 }

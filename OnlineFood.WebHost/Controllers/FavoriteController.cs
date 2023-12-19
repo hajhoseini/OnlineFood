@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Favorites;
-using OnlineFood.Application.Services.Favorites.Commands;
-using OnlineFood.Application.Services.Favorites.Queries;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using OnlineFood.Application.Features.Favorites.Commands.Requests;
+using OnlineFood.Application.Features.Favorites.Queries.Requests;
 
 namespace OnlineFood.WebHost.Controllers;
 
@@ -9,48 +9,46 @@ namespace OnlineFood.WebHost.Controllers;
 [Route("[controller]")]
 public class FavoriteController : ControllerBase
 {
-    private readonly IFavoriteCommandService _FavoriteCommandService;
-    private readonly IFavoriteQueryService _FavoriteQueryService;
+	private readonly IMediator mediator;
 
+	public FavoriteController(IMediator mediator)
+	{
+		this.mediator = mediator;
+	}
 
-    public FavoriteController(IFavoriteCommandService FavoriteCommandService, IFavoriteQueryService FavoriteQueryService)
-    {
-        _FavoriteCommandService = FavoriteCommandService;
-        _FavoriteQueryService = FavoriteQueryService;
-    }
+	[HttpGet]
+	public async Task<IActionResult> GetListFavorites([FromBody] GetListFavoritesQuery query)
+	{
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPost]
-    public async Task<IActionResult> Create(FavoriteDto dto)
-    {
-        var result = await _FavoriteCommandService.Create(dto);
-        return Ok(result);
-    }
+	[HttpGet("{id}")]
+	public async Task<IActionResult> GetFavoriteById(int id)
+	{
+		GetFavoriteQuery query = new GetFavoriteQuery() { Id = id };
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPut]
-    public async Task<IActionResult> Update(FavoriteDto dto)
-    {
-        var result = await _FavoriteCommandService.Update(dto);
-        return Ok(result);
-    }
+	[HttpPost]
+	public async Task<IActionResult> CreateFavorite([FromBody] CreateFavoriteCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpDelete]
-    public async Task<IActionResult> Delete(FavoriteDto dto)
-    {
-        var result = await _FavoriteCommandService.Delete(dto);
-        return Ok(result);
-    }
+	[HttpPut]
+	public async Task<IActionResult> UpdateFavorite([FromBody] UpdateFavoriteCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> Get(int id)
-    {
-        var result = await _FavoriteQueryService.GetById(id);
-        return Ok(result);
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var result = await _FavoriteQueryService.GetList();
-        return Ok(result);
-    }
+	[HttpDelete]
+	public async Task<IActionResult> DeleteFavorite([FromBody] DeleteFavoriteCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 }

@@ -1,7 +1,9 @@
 
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineFood.Application;
+using OnlineFood.Application.Features.Users.Commands.RequestHandlers;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.InfraStructure;
 using OnlineFood.InfraStructure.DBContext;
@@ -19,6 +21,9 @@ builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
+
 builder.Services.AddIdentity<User, Role>(options =>
     {
         options.Password.RequireDigit = true;
@@ -32,7 +37,7 @@ builder.Services.AddIdentity<User, Role>(options =>
 
 
 var app = builder.Build();
- 
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

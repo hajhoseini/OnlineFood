@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Comments;
-using OnlineFood.Application.Services.Comments.Commands;
-using OnlineFood.Application.Services.Comments.Queries;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using OnlineFood.Application.Features.Comments.Commands.Requests;
+using OnlineFood.Application.Features.Comments.Queries.Requests;
 
 namespace OnlineFood.WebHost.Controllers;
 
@@ -9,48 +9,46 @@ namespace OnlineFood.WebHost.Controllers;
 [Route("[controller]")]
 public class CommentController : ControllerBase
 {
-    private readonly ICommentCommandService _CommentCommandService;
-    private readonly ICommentQueryService _CommentQueryService;
+	private readonly IMediator mediator;
 
+	public CommentController(IMediator mediator)
+	{
+		this.mediator = mediator;
+	}
 
-    public CommentController(ICommentCommandService CommentCommandService, ICommentQueryService CommentQueryService)
-    {
-        _CommentCommandService = CommentCommandService;
-        _CommentQueryService = CommentQueryService;
-    }
+	[HttpGet]
+	public async Task<IActionResult> GetListComments([FromBody] GetListCommentsQuery query)
+	{
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPost]
-    public async Task<IActionResult> Create(CommentDto dto)
-    {
-        var result = await _CommentCommandService.Create(dto);
-        return Ok(result);
-    }
+	[HttpGet("{id}")]
+	public async Task<IActionResult> GetCommentById(int id)
+	{
+		GetCommentQuery query = new GetCommentQuery() { Id = id };
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPut]
-    public async Task<IActionResult> Update(CommentDto dto)
-    {
-        var result = await _CommentCommandService.Update(dto);
-        return Ok(result);
-    }
+	[HttpPost]
+	public async Task<IActionResult> CreateComment([FromBody] CreateCommentCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpDelete]
-    public async Task<IActionResult> Delete(CommentDto dto)
-    {
-        var result = await _CommentCommandService.Delete(dto);
-        return Ok(result);
-    }
+	[HttpPut]
+	public async Task<IActionResult> UpdateComment([FromBody] UpdateCommentCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> Get(int id)
-    {
-        var result = await _CommentQueryService.GetById(id);
-        return Ok(result);
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var result = await _CommentQueryService.GetList();
-        return Ok(result);
-    }
+	[HttpDelete]
+	public async Task<IActionResult> DeleteComment([FromBody] DeleteCommentCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 }
