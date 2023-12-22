@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineFood.Application.Features.Messages.Commands
+namespace OnlineFood.Application.Features.Messages.Commands.Requests
 {
-    public class CreateMessageCommand:IRequest<bool>
+    public class CreateMessageCommand : IRequest<bool>
     {
         public string Title { get; set; }
         public string Text { get; set; }
