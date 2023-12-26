@@ -1,0 +1,11 @@
+﻿using MediatR;
+
+namespace OnlineFood.Application.Features.Provinces.Commands.Requests;
+
+public class CreateProvinceCommand : IRequest<bool>
+{
+	public int Id { get; set; }
+	public DateTime CreateDate { get; set; }
+	public string Name { get; set; }
+
+}

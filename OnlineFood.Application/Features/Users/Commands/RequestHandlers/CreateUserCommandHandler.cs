@@ -20,7 +20,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, bool>
 	public async Task<bool> Handle(CreateUserCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<User>(request);
-		var result = await _unitOfWork.GenericReposity<User>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<User>().Create(entity);
 		return result;
 	}
 }

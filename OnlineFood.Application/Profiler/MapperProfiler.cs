@@ -1,24 +1,32 @@
-﻿using AutoMapper;
+using AutoMapper;
 using OnlineFood.Application.Dtos.Users;
 using OnlineFood.Application.Features.Addresses.Commands.Requests;
+using OnlineFood.Application.Features.Cities.Commands.Requests;
 using OnlineFood.Application.Features.Comments.Commands.Requests;
 using OnlineFood.Application.Features.Customers.Commands.Requests;
 using OnlineFood.Application.Features.Favorites.Commands.Requests;
+using OnlineFood.Application.Features.MenuCategories.Commands.Requests;
 using OnlineFood.Application.Features.Messages.Commands.Requests;
 using OnlineFood.Application.Features.Notifications.Commands.Requests;
 using OnlineFood.Application.Features.OrderItems.Commands.Requests;
 using OnlineFood.Application.Features.Orders.Commands.Requests;
+using OnlineFood.Application.Features.Provinces.Commands.Requests;
+using OnlineFood.Application.Features.RestaurantCategories.Commands.Requests;
 using OnlineFood.Application.Features.Trancations.Commands.Requests;
 using OnlineFood.Application.Features.Users.Commands.Requests;
 using OnlineFood.Application.Features.Wallets.Commands.Requests;
 using OnlineFood.Domain.Entities.Addresses;
+using OnlineFood.Domain.Entities.Cities;
 using OnlineFood.Domain.Entities.Comments;
 using OnlineFood.Domain.Entities.Customers;
 using OnlineFood.Domain.Entities.Favorites;
+using OnlineFood.Domain.Entities.MenuCategories;
 using OnlineFood.Domain.Entities.Messages;
 using OnlineFood.Domain.Entities.Notifications;
 using OnlineFood.Domain.Entities.OrderItems;
 using OnlineFood.Domain.Entities.Orders;
+using OnlineFood.Domain.Entities.Provinces;
+using OnlineFood.Domain.Entities.RestaurantCategories;
 using OnlineFood.Domain.Entities.Trancations;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.Domain.Entities.Wallets;
@@ -52,7 +60,6 @@ public class MapperProfiler : Profile
         CreateMap<Order, CreateOrderCommand>().ReverseMap();
         CreateMap<Order, UpdateOrderCommand>().ReverseMap();
 
-
         CreateMap<Address, CreateAddressCommand>().ReverseMap();
         CreateMap<Address, UpdateAddressCommand>().ReverseMap();
 
@@ -68,6 +75,16 @@ public class MapperProfiler : Profile
         CreateMap<Wallet, CreateWalletCommand>().ReverseMap();
         CreateMap<Wallet, UpdateWalletCommand>().ReverseMap();
 
+        CreateMap<MenuCategory, CreateMenuCategoryCommand>().ReverseMap();
+        CreateMap<MenuCategory, UpdateMenuCategoryCommand>().ReverseMap();
 
+        CreateMap<RestaurantCategory, CreateRestaurantCategoryCommand>().ReverseMap();
+        CreateMap<RestaurantCategory, UpdateRestaurantCategoryCommand>().ReverseMap();
+
+        CreateMap<City, CreateCityCommand>().ReverseMap();
+        CreateMap<City, UpdateCityCommand>().ReverseMap();
+
+        CreateMap<Province, CreateProvinceCommand>().ReverseMap();
+        CreateMap<Province, UpdateProvinceCommand>().ReverseMap();
     }
 }
