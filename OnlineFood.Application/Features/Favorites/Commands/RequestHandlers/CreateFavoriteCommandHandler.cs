@@ -20,7 +20,7 @@ public class CreateFavoriteCommandHandler : IRequestHandler<CreateFavoriteComman
 	public async Task<bool> Handle(CreateFavoriteCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<Favorite>(request);
-		var result = await _unitOfWork.GenericReposity<Favorite>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<Favorite>().Create(entity);
 		return result;
 	}
 }

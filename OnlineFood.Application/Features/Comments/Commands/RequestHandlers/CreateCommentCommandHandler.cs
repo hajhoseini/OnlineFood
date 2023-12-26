@@ -20,7 +20,7 @@ public class CreateCommentCommandHandler : IRequestHandler<CreateCommentCommand,
 	public async Task<bool> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<Comment>(request);
-		var result = await _unitOfWork.GenericReposity<Comment>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<Comment>().Create(entity);
 		return result;
 	}
 }

@@ -20,7 +20,7 @@ public class CreateCityCommandHandler : IRequestHandler<CreateCityCommand, bool>
 	public async Task<bool> Handle(CreateCityCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<City>(request);
-		var result = await _unitOfWork.GenericReposity<City>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<City>().Create(entity);
 		return result;
 	}
 }

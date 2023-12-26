@@ -20,7 +20,7 @@ public class CreateRestaurantCategoryCommandHandler : IRequestHandler<CreateRest
 	public async Task<bool> Handle(CreateRestaurantCategoryCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<RestaurantCategory>(request);
-		var result = await _unitOfWork.GenericReposity<RestaurantCategory>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<RestaurantCategory>().Create(entity);
 		return result;
 	}
 }

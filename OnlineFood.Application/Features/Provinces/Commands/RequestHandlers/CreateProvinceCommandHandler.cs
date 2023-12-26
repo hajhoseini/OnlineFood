@@ -20,7 +20,7 @@ public class CreateProvinceCommandHandler : IRequestHandler<CreateProvinceComman
 	public async Task<bool> Handle(CreateProvinceCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<Province>(request);
-		var result = await _unitOfWork.GenericReposity<Province>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<Province>().Create(entity);
 		return result;
 	}
 }

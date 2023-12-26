@@ -20,7 +20,7 @@ public class CreateTrancationCommandHandler : IRequestHandler<CreateTrancationCo
 	public async Task<bool> Handle(CreateTrancationCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<Trancation>(request);
-		var result = await _unitOfWork.GenericReposity<Trancation>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<Trancation>().Create(entity);
 		return result;
 	}
 }

@@ -20,7 +20,7 @@ public class CreateMenuCategoryCommandHandler : IRequestHandler<CreateMenuCatego
 	public async Task<bool> Handle(CreateMenuCategoryCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<MenuCategory>(request);
-		var result = await _unitOfWork.GenericReposity<MenuCategory>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<MenuCategory>().Create(entity);
 		return result;
 	}
 }

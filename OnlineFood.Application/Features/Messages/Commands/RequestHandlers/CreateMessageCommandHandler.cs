@@ -20,7 +20,7 @@ namespace OnlineFood.Application.Features.Messages.Commands.RequestHandlers
         public async Task<bool> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
         {
             var entity = _mapper.Map<Message>(request);
-            var result = await _unitOfWork.GenericReposity<Message>().Update(entity);
+            var result = await _unitOfWork.GenericReposity<Message>().Create(entity);
             return result;
         }
     }

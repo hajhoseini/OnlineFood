@@ -20,7 +20,7 @@ public class CreateOrderItemCommandHandler : IRequestHandler<CreateOrderItemComm
 	public async Task<bool> Handle(CreateOrderItemCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<OrderItem>(request);
-		var result = await _unitOfWork.GenericReposity<OrderItem>().Update(entity);
+		var result = await _unitOfWork.GenericReposity<OrderItem>().Create(entity);
 		return result;
 	}
 }
