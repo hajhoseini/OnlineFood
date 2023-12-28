@@ -16,6 +16,7 @@ public class CommentController : ControllerBase
 		this.mediator = mediator;
 	}
 
+
 	[HttpGet]
 	public async Task<IActionResult> GetListComments([FromBody] GetListCommentsQuery query)
 	{
