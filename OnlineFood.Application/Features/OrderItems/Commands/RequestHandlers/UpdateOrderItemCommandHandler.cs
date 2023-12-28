@@ -8,18 +8,18 @@ namespace OnlineFood.Application.Features.OrderItems.Commands.RequestHandlers;
 
 public class UpdateOrderItemCommandHandler : IRequestHandler<UpdateOrderItemCommand, bool>
 {
-	private readonly IOrderItemRepository _OrderItemRepository;
-	private readonly IMapper _mapper;
+    private readonly IOrderItemRepository _orderItemRpository;
+    private readonly IMapper _mapper;
 
-	public UpdateOrderItemCommandHandler(IOrderItemRepository OrderItemRepository, IMapper mapper)
-	{
-		this._OrderItemRepository = OrderItemRepository;
-		this._mapper = mapper;
-	}
+    public UpdateOrderItemCommandHandler(IOrderItemRepository orderItemRpository, IMapper mapper)
+    {
+        this._orderItemRpository = orderItemRpository;
+        this._mapper = mapper;
+    }
 
-	public Task<bool> Handle(UpdateOrderItemCommand request, CancellationToken cancellationToken)
-	{
-		var entity = _mapper.Map<OrderItem>(request);
-		return _OrderItemRepository.Update(entity);
-	}
+    public Task<bool> Handle(UpdateOrderItemCommand request, CancellationToken cancellationToken)
+    {
+        var entity = _mapper.Map<OrderItem>(request);
+        return _orderItemRpository.Update(entity);
+    }
 }

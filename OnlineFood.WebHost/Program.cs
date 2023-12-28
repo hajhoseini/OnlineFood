@@ -7,6 +7,7 @@ using OnlineFood.Application.Features.Users.Commands.RequestHandlers;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.InfraStructure;
 using OnlineFood.InfraStructure.DBContext;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,8 @@ builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
+//builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 builder.Services.AddIdentity<User, Role>(options =>
     {
