@@ -20,7 +20,7 @@ public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificati
     public async Task<bool> Handle(CreateNotificationCommand request, CancellationToken cancellationToken)
     {
         var entity = _mapper.Map<Notification>(request);
-        var result = await _unitOfWork.GenericReposity<Notification>().Update(entity);
+        var result = await _unitOfWork.GenericReposity<Notification>().Create(entity);
         return result;
     }
 }

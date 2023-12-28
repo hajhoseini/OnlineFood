@@ -20,7 +20,7 @@ public class CreateWalletCommandHandler:IRequestHandler<CreateWalletCommand,bool
     public async Task<bool> Handle(CreateWalletCommand request, CancellationToken cancellationToken)
     {
         var entity = _mapper.Map<Wallet>(request);
-        var result = await _unitOfWork.GenericReposity<Wallet>().Update(entity);
+        var result = await _unitOfWork.GenericReposity<Wallet>().Create(entity);
         return result;
     }
 }

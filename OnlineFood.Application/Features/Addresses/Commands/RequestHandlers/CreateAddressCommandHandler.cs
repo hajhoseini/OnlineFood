@@ -20,7 +20,7 @@ public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand,
     public async Task<bool> Handle(CreateAddressCommand request, CancellationToken cancellationToken)
     {
         var entity = _mapper.Map<Address>(request);
-        var result = await _unitOfWork.GenericReposity<Address>().Update(entity);
+        var result = await _unitOfWork.GenericReposity<Address>().Create(entity);
         return result;
     }
 }
