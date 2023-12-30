@@ -7,5 +7,5 @@ public class Message : BaseEntity
 {
     public string Title { get; set; }
     public string Text { get; set; }
-    public SendTypeEnum SendType { get; set; }
+    public int SendType { get; set; }
 }

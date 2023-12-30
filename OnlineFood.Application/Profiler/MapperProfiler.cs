@@ -1,4 +1,5 @@
 using AutoMapper;
+using OnlineFood.Application.Dtos.Message;
 using OnlineFood.Application.Dtos.Users;
 using OnlineFood.Application.Features.Addresses.Commands.Requests;
 using OnlineFood.Application.Features.Cities.Commands.Requests;
@@ -66,6 +67,7 @@ public class MapperProfiler : Profile
         
         CreateMap<Message, CreateMessageCommand>().ReverseMap();
         CreateMap<Message, UpdateMessageCommand>().ReverseMap();
+        CreateMap<Message, MessageDTo>().ReverseMap();
 
         
         CreateMap<Notification, CreateNotificationCommand>().ReverseMap();

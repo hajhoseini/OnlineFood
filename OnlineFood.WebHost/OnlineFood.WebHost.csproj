@@ -23,6 +23,8 @@
     <ProjectReference Include="..\OnlineFood.Common\OnlineFood.Common.csproj" />
     <ProjectReference Include="..\OnlineFood.Domain\OnlineFood.Domain.csproj" />
     <ProjectReference Include="..\OnlineFood.InfraStructure\OnlineFood.InfraStructure.csproj" />
+
+
   </ItemGroup>
 
 
