@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using OnlineFood.Application.Dtos.Users;
 using OnlineFood.Application.Features.Users.Queries.Requests;
 
-namespace OnlineFood.WebHost.Areas.Controllers;
+namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
+[Area("Admin")]
 public class LoginController : Controller
 {
 	private readonly IMediator _mediator;
