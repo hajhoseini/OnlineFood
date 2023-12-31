@@ -1,8 +1,437 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">                
+                <div class="col-sm-12">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="#">سبد خرید</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">‌بهار حسینی</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="nav nav-pills flex-column">
+                                <li class="nav-item active">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-file-text-o"></i> پیام ها
+                                        <span class="badge bg-primary float-left">12</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-file-text-o"></i> کیف پول
+                                        <span class="badge bg-warning float-left">89,000 تومان</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-file-text-o"></i> اطلاعات من
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-file-text-o"></i> آدرس ها                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-file-text-o"></i> علاقه مندی ها
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-file-text-o"></i> تغییر رمز
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- DIRECT CHAT -->
+                    <div class="card direct-chat direct-chat-warning">
+                        <div class="card-header">
+                            <h3 class="card-title">چت</h3>
+
+                            <div class="card-tools">
+                                <span data-toggle="tooltip" title="3 New Messages" class="badge badge-warning">3</span>
+                                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
+                                        data-widget="chat-pane-toggle">
+                                    <i class="fa fa-comments"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-widget="remove">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <!-- Conversations are loaded here -->
+                            <div class="direct-chat-messages">
+                                <!-- Message. Default to the left -->
+                                <div class="direct-chat-msg">
+                                    <div class="direct-chat-info clearfix">
+                                        <span class="direct-chat-name float-left">بهار حسینی</span>
+                                        <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                                    </div>
+                                    <!-- /.direct-chat-info -->
+                                    <img class="direct-chat-img" src="/AdminTemplate/dist/img/avatar3.png" alt="message user image">
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        سلام. وقت بخیر
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                                <!-- /.direct-chat-msg -->
+                                <!-- Message to the right -->
+                                <div class="direct-chat-msg right">
+                                    <div class="direct-chat-info clearfix">
+                                        <span class="direct-chat-name float-right">پشتیبانی سایت</span>
+                                        <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                                    </div>
+                                    <!-- /.direct-chat-info -->
+                                    <img class="direct-chat-img" src="/AdminTemplate/dist/img/user1-128x128.jpg" alt="message user image">
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        سلام. در خدمتم
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                                <!-- /.direct-chat-msg -->
+                                <!-- Message. Default to the left -->
+                                <div class="direct-chat-msg">
+                                    <div class="direct-chat-info clearfix">
+                                        <span class="direct-chat-name float-left">بهار حسینی</span>
+                                        <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+                                    </div>
+                                    <!-- /.direct-chat-info -->
+                                    <img class="direct-chat-img" src="/AdminTemplate/dist/img/avatar3.png" alt="message user image">
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        سفارش من به دستم نرسیده
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                                <!-- /.direct-chat-msg -->
+                                <!-- Message to the right -->
+                                <div class="direct-chat-msg right">
+                                    <div class="direct-chat-info clearfix">
+                                        <span class="direct-chat-name float-right">پشتیبانی سایت</span>
+                                        <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+                                    </div>
+                                    <!-- /.direct-chat-info -->
+                                    <img class="direct-chat-img" src="/AdminTemplate/dist/img/user1-128x128.jpg" alt="message user image">
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        لطفا چند دقیقه صبر کنید
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                                <!-- /.direct-chat-msg -->
+
+                            </div>
+                            <!--/.direct-chat-messages-->
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <form action="#" method="post">
+                                <div class="input-group">
+                                    <input type="text" name="message" placeholder="تایپ پیام ..." class="form-control">
+                                    <span class="input-group-append">
+                                        <button type="button" class="btn btn-warning">ارسال</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-footer-->
+                    </div>
+                    <!--/.direct-chat -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header text-white"
+                                     style="background: url('AdminTemplate/restaurant/img/baner/banner1.jpg') center center;">
+                                    @* <h3 class="widget-user-username">فست فود آرین</h3>
+                                    <h5 class="widget-user-desc">بلوار بهشتی</h5> *@
+                                </div>
+                                @* <div class="widget-user-image">
+                                    <img class="img-circle" src="~/AdminTemplate/restaurant/img/logo/logo2.jpg" alt="User Avatar">
+                                </div> *@
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">رستوران زعفران</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">80 امتیاز</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">رستوران ایرانی، چلوخورش</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header text-white"
+                                     style="background: url('AdminTemplate/restaurant/img/baner/banner2.jpg') center center;">
+                                    @* <h3 class="widget-user-username">فست فود آرین</h3>
+                                    <h5 class="widget-user-desc">بلوار بهشتی</h5> *@
+                                </div>
+                                @* <div class="widget-user-image">
+                                <img class="img-circle" src="~/AdminTemplate/restaurant/img/logo/logo2.jpg" alt="User Avatar">
+                                </div> *@
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">فست فود قصر</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">60 امتیاز</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">فست فود</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header text-white"
+                                     style="background: url('AdminTemplate/restaurant/img/baner/banner3.jpg') center center;">
+                                    @* <h3 class="widget-user-username">فست فود آرین</h3>
+                                    <h5 class="widget-user-desc">بلوار بهشتی</h5> *@
+                                </div>
+                                @* <div class="widget-user-image">
+                                    <img class="img-circle" src="~/AdminTemplate/restaurant/img/logo/logo2.jpg" alt="User Avatar">
+                                </div> *@
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">پیتزا پیتزا</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">86 امتیاز</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">فست فود</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header text-white"
+                                     style="background: url('AdminTemplate/restaurant/img/baner/banner4.jpg') center center;">
+                                    @* <h3 class="widget-user-username">فست فود آرین</h3>
+                                    <h5 class="widget-user-desc">بلوار بهشتی</h5> *@
+                                </div>
+                                @* <div class="widget-user-image">
+                                <img class="img-circle" src="~/AdminTemplate/restaurant/img/logo/logo2.jpg" alt="User Avatar">
+                                </div> *@
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">غذای رژیمی تناسب</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">90 امتیاز</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">ایرانی</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header text-white"
+                                     style="background: url('AdminTemplate/restaurant/img/baner/banner5.jpg') center center;">
+                                    @* <h3 class="widget-user-username">فست فود آرین</h3>
+                                    <h5 class="widget-user-desc">بلوار بهشتی</h5> *@
+                                </div>
+                                @* <div class="widget-user-image">
+                                <img class="img-circle" src="~/AdminTemplate/restaurant/img/logo/logo2.jpg" alt="User Avatar">
+                                </div> *@
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">گودفود</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">84 امتیاز</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">فست فود</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header text-white"
+                                     style="background: url('AdminTemplate/restaurant/img/baner/banner6.jpg') center center;">
+                                    @* <h3 class="widget-user-username">فست فود آرین</h3>
+                                    <h5 class="widget-user-desc">بلوار بهشتی</h5> *@
+                                </div>
+                                @* <div class="widget-user-image">
+                                <img class="img-circle" src="~/AdminTemplate/restaurant/img/logo/logo2.jpg" alt="User Avatar">
+                                </div> *@
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">رستوران البرز</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">92 امتیاز</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 border-left">
+                                            <div class="description-block">
+                                                <h5 class="description-header">رستوران ایرانی، چلوخورش</h5>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
