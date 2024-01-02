@@ -193,7 +193,7 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="" asp-action="">
+                                           asp-area="Admin" asp-controller="Users" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>کاربران</p>
                                         </a>
@@ -201,7 +201,7 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="" asp-action="">
+                                           asp-area="Admin" asp-controller="Restaurants" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>رستوران ها</p>
                                         </a>
@@ -209,7 +209,7 @@
                                    
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="" asp-action="">
+                                           asp-area="Admin" asp-controller="RestaurantCategories" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>دسته بندی رستوران</p>
                                         </a>
@@ -217,7 +217,7 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="" asp-action="">
+                                           asp-area="Admin" asp-controller="MenuCategories" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>دسته بندی منو</p>
                                         </a>
@@ -225,14 +225,15 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           asp-area="Admin" asp-controller="" asp-action="">
+                                           asp-area="Admin" asp-controller="Messages" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>پیام های سامانه</p>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link">
+                                        <a class="nav-link"
+                                            asp-area="Admin" asp-controller="Notifications" asp-action="Index">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>اخبار و اعلان ها</p>
                                         </a>
