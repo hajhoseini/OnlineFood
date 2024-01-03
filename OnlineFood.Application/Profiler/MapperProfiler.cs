@@ -67,7 +67,7 @@ public class MapperProfiler : Profile
         
         CreateMap<Message, CreateMessageCommand>().ReverseMap();
         CreateMap<Message, UpdateMessageCommand>().ReverseMap();
-        CreateMap<Message, MessageDTo>().ReverseMap();
+        CreateMap<Message, MessageDTO>().ReverseMap();
 
         
         CreateMap<Notification, CreateNotificationCommand>().ReverseMap();

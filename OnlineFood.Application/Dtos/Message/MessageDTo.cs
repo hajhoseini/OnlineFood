@@ -1,10 +1,9 @@
-﻿using OnlineFood.Common.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
 namespace OnlineFood.Application.Dtos.Message;
 
-public class MessageDTo
+public class MessageDTO
 {
     [Required]
     [DisplayName("عنوان پیام")]

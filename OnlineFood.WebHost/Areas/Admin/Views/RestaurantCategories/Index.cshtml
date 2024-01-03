@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>مدیریت دسته بندی های رستوران</h1>
+                    <h1>مدیریت دسته بندی فروشنده ها</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">مدیریت دسته بندی های رستوران</li>
+                        <li class="breadcrumb-item active">مدیریت دسته بندی فروشنده ها</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +22,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="card-header p-2">
+                            <input class="btn btn-primary"
+                                   type="button" value="ایجاد دسته بندی جدید" onclick="location.href='@Url.Action("New", "RestaurantCategories")'" />
+                        </div>
+                        <!-- /.card-header -->
                         <div class="card-header">
-                            <h3 class="card-title">لیست دسته بندی های رستوران</h3>
+                            <h3 class="card-title">لیست دسته بندی فروشنده ها</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -40,38 +45,27 @@
                             <table class="table table-hover">
                                 <tr>
                                     <th>شماره</th>
-                                    <th>کاربر</th>
-                                    <th>تاریخ</th>
-                                    <th>وضعیت</th>
-                                    <th>دلیل</th>
+                                    <th>عنوان</th>
+                                    <th>توضیحات</th>
+                                    <th>تعداد</th>
                                 </tr>
                                 <tr>
-                                    <td>183</td>
-                                    <td>محمد</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="badge badge-success">تایید شده</span></td>
-                                    <td>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</td>
+                                    <td>1</td>
+                                    <td>غذای ایرانی</td>
+                                    <td>غذاهای سنتی ایرانی</td>
+                                    <td>21 فروشنده</td>
                                 </tr>
                                 <tr>
-                                    <td>219</td>
-                                    <td>حسام</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="badge bg-danger">در حال بررسی</span></td>
-                                    <td>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</td>
+                                    <td>2</td>
+                                    <td>کیک و شیرینی</td>
+                                    <td>قنادی  و شیرینی فروشی</td>
+                                    <td>7 فروشنده</td>
                                 </tr>
                                 <tr>
-                                    <td>657</td>
-                                    <td>رضا</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="badge badge-primary">تایید شده</span></td>
-                                    <td>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>پرهام</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="badge badge-danger">رد شده</span></td>
-                                    <td>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</td>
+                                    <td>3</td>
+                                    <td>میوه</td>
+                                    <td>میوه فروشی و تره بار</td>
+                                    <td>16 فروشنده</td>
                                 </tr>
                             </table>
                         </div>
