@@ -19,7 +19,7 @@ public class MessagesController : Controller
     }
 
     [HttpPost]
-    public IActionResult Send(MessageDTo messageDTo)
+    public IActionResult Send(MessageDTO messageDTo)
     {
         return RedirectToAction("Index", "Messages");
     }
