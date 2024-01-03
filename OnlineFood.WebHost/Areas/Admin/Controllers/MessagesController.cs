@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineFood.Application.Dtos.Message;
 
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
@@ -9,5 +10,17 @@ public class MessagesController : Controller
     public IActionResult Index()
     {
         return View();
+    }
+    
+    [HttpGet]
+    public IActionResult Send()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Send(MessageDTo messageDTo)
+    {
+        return RedirectToAction("Index", "Messages");
     }
 }
