@@ -1,4 +1,3 @@
-
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,14 +16,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.ApplicationServiceCollections();
 builder.Services.InfraStructureServiceCollections();
-
+builder.Services.ApplicationServiceCollections();
 builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-//builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
-builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+ 
 
 builder.Services.AddIdentity<User, Role>(options =>
     {
@@ -33,7 +31,6 @@ builder.Services.AddIdentity<User, Role>(options =>
         options.Stores.ProtectPersonalData = false;
         options.Password.RequireUppercase = false;
         options.Password.RequireLowercase = false;
-
     }).AddEntityFrameworkStores<OnlineFoodDBConext>()
     .AddDefaultTokenProviders();
 
