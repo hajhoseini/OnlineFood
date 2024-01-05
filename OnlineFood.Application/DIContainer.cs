@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineFood.Application.Services.Users.Commands;
 
@@ -11,7 +12,7 @@ public static class DIContainer
         services.AddScoped<IUserCommandService, UserCommandService>();
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
+        services.AddMediatR(Assembly.GetExecutingAssembly());
         return services;
     }
 }
