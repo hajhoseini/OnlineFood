@@ -7,15 +7,15 @@ namespace OnlineFood.Application.Features.Wallets.Queries.RequestHandlers;
 
 public class GetWalletQueryHandler : IRequestHandler<GetWalletQuery, Wallet>
 {
-	private readonly IWalletReader _WalletReader;
+	private readonly IWalletReader _walletReader;
 
 	public GetWalletQueryHandler(IWalletReader walletReader)
 	{
-		this._WalletReader = walletReader;
+	_walletReader = walletReader;
 	}
 
 	public async Task<Wallet> Handle(GetWalletQuery request, CancellationToken cancellationToken)
 	{
-		return await _WalletReader.GetById(request.Id);
+		return await _walletReader.GetById(request.Id);
 	}
 }

@@ -12,14 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.ApplicationServiceCollections();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.InfraStructureServiceCollections();
 builder.Services.ApplicationServiceCollections();
 builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
  
