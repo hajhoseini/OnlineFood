@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Features.Menus.Commands.Requests;
+using OnlineFood.Application.Features.Restaurants.Commands.Requests;
 
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
 [Area("Admin")]
-public class MenuController : Controller
+public class RestaurantController : Controller
 {
     [HttpGet]
     public IActionResult Index()
@@ -19,7 +19,7 @@ public class MenuController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> New(CreateMenuCommand command)
+    public async Task<IActionResult> New(CreateRestaurantCommand command)
     {
         return View();
     }

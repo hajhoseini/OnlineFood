@@ -1,17 +1,15 @@
-@model OnlineFood.Application.Dtos.RestaurantCategory.RestaurantCategoryDTO
-
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>ایجاد دسته بندی فروشنده</h1>
+                    <h1>کیف پول</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">ایجاد دسته بندی فروشنده</li>
+                        <li class="breadcrumb-item active">کیف پول</li>
                     </ol>
                 </div>
             </div>
@@ -26,19 +24,15 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ایجاد دسته بندی جدید برای فروشنده ها</h3>
+                            <h3 class="card-title">کیف پول</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" asp-controller="RestaurantCategories" asp-action="New" method="post">
+                        <form role="form" asp-controller="Wallet" asp-action="New" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label asp-for="Title"></label>
+                                    @* <label asp-for="Title"></label> *@
                                     <input type="text" class="form-control" name="Title">
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Description"></label>
-                                    <textarea class="form-control" rows="3" name="Description"></textarea>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -46,7 +40,7 @@
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">ثبت</button>
                                 <input class="btn btn-default"
-                                       type="button" value="لغو و بازگشت" onclick="location.href='@Url.Action("Index", "RestaurantCategories")'" />
+                                       type="button" value="لغو و بازگشت" onclick="location.href='@Url.Action("Index", "Wallet")'" />
                             </div>
                         </form>
                     </div>

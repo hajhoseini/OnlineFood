@@ -6,11 +6,11 @@ using OnlineFood.Application.Dtos.RestaurantCategory;
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
 [Area("Admin")]
-public class RestaurantCategoriesController : Controller
+public class RestaurantCategoryController : Controller
 {
     private readonly IMediator _mediator;
 
-    public RestaurantCategoriesController(IMediator mediator)
+    public RestaurantCategoryController(IMediator mediator)
     {
         _mediator = mediator;
     }
@@ -35,6 +35,6 @@ public class RestaurantCategoriesController : Controller
         dto.CreateDate = DateTime.Now;
         var result = await _mediator.Send(dto);
         return Ok(result);
-        //return RedirectToAction("Index", "RestaurantCategories");
+        //return RedirectToAction("Index", "RestaurantCategory");
     }
 }

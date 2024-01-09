@@ -10,4 +10,16 @@ public class RoleController : Controller
     {
         return View();
     }
+
+    [HttpGet]
+    public IActionResult New()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> New(int RoleId=0)
+    {
+        return View();
+    }
 }
