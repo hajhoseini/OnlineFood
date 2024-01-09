@@ -157,7 +157,7 @@ ul {
 @media (min-width: 768px) {
     .content-wrapper, .main-footer, .main-header {
         transition: margin-right .3s ease-in-out;
-        /*margin-right: 250px;*/
+        margin-right: 250px;
         margin-left : 0;
         z-index: 3000;
     }
