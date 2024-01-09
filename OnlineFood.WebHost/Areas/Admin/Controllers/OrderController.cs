@@ -3,8 +3,9 @@
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
 [Area("Admin")]
-public class HomeController : Controller
+public class OrderController : Controller
 {
+    [HttpGet]
     public IActionResult Index()
     {
         return View();

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Features.Trancations.Commands.Requests;
-using OnlineFood.Application.Features.Trancations.Queries.Requests;
+using OnlineFood.Application.Features.Transactions.Commands.Requests;
+using OnlineFood.Application.Features.Transactions.Queries.Requests;
 
 namespace OnlineFood.WebHost.Controllers;
 
@@ -17,7 +17,7 @@ public class TrancationController : ControllerBase
 	}
 
 	[HttpGet]
-	public async Task<IActionResult> GetListTrancations([FromBody] GetListTrancationsQuery query)
+	public async Task<IActionResult> GetListTransactions([FromBody] GetListTransactionsQuery query)
 	{
 		var result = await mediator.Send(query);
 		return Ok(new { Data = result });
@@ -26,27 +26,27 @@ public class TrancationController : ControllerBase
 	[HttpGet("{id}")]
 	public async Task<IActionResult> GetTrancationById(int id)
 	{
-		GetTrancationQuery query = new GetTrancationQuery() { Id = id };
+		GetTransactionQuery query = new GetTransactionQuery() { Id = id };
 		var result = await mediator.Send(query);
 		return Ok(new { Data = result });
 	}
 
 	[HttpPost]
-	public async Task<IActionResult> CreateTrancation([FromBody] CreateTrancationCommand command)
+	public async Task<IActionResult> CreateTrancation([FromBody] CreateTransactionCommand command)
 	{
 		var result = await mediator.Send(command);
 		return Ok(new { Data = result });
 	}
 
 	[HttpPut]
-	public async Task<IActionResult> UpdateTrancation([FromBody] UpdateTrancationCommand command)
+	public async Task<IActionResult> UpdateTrancation([FromBody] UpdateTransactionCommand command)
 	{
 		var result = await mediator.Send(command);
 		return Ok(new { Data = result });
 	}
 
 	[HttpDelete]
-	public async Task<IActionResult> DeleteTrancation([FromBody] DeleteTrancationCommand command)
+	public async Task<IActionResult> DeleteTrancation([FromBody] DeleteTransactionCommand command)
 	{
 		var result = await mediator.Send(command);
 		return Ok(new { Data = result });
