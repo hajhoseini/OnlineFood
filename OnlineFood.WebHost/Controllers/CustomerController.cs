@@ -7,7 +7,7 @@ namespace OnlineFood.WebHost.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CustomerController : ControllerBase
+public class CustomerController : /*ControllerBase*/Controller
 {
 	private readonly IMediator mediator;
 
@@ -16,22 +16,27 @@ public class CustomerController : ControllerBase
 		this.mediator = mediator;
 	}
 
-	[HttpGet]
-	public async Task<IActionResult> GetListCustomers([FromBody] GetListCustomersQuery query)
-	{
-		var result = await mediator.Send(query);
-		return Ok(new { Data = result });
-	}
+	//[HttpGet]
+	//public async Task<IActionResult> GetListCustomers([FromBody] GetListCustomersQuery query)
+	//{
+	//	var result = await mediator.Send(query);
+	//	return Ok(new { Data = result });
+	//}
 
-	[HttpGet("{id}")]
-	public async Task<IActionResult> GetCustomerById(int id)
-	{
-		GetCustomerQuery query = new GetCustomerQuery() { Id = id };
-		var result = await mediator.Send(query);
-		return Ok(new { Data = result });
-	}
+    //[HttpGet("{id}")]
+    //public async Task<IActionResult> GetCustomerById(int id)
+    //{
+    //	GetCustomerQuery query = new GetCustomerQuery() { Id = id };
+    //	var result = await mediator.Send(query);
+    //	return Ok(new { Data = result });
+    //}
+    [HttpGet]
+    public async Task<IActionResult> GetCustomerById()
+    {
+		return View("Index");
+    }
 
-	[HttpPost]
+    [HttpPost]
 	public async Task<IActionResult> CreateCustomer([FromBody] CreateCustomerCommand command)
 	{
 		var result = await mediator.Send(command);
