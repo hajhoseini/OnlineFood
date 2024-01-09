@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OnlineFood.InfraStructure.Migrations
 {
     /// <inheritdoc />
-    public partial class thisisfirstmigratioalireza : Migration
+    public partial class ConfigDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

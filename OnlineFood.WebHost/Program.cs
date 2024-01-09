@@ -16,12 +16,15 @@ builder.Services.ApplicationServiceCollections();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.InfraStructureServiceCollections();
 builder.Services.ApplicationServiceCollections();
+//builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
+//{
+//    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+//});
 builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 {
-    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
- 
 
 builder.Services.AddIdentity<User, Role>(options =>
     {

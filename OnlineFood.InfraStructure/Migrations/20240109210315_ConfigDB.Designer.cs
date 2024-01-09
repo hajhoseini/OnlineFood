@@ -12,8 +12,8 @@ using OnlineFood.InfraStructure.DBContext;
 namespace OnlineFood.InfraStructure.Migrations
 {
     [DbContext(typeof(OnlineFoodDBConext))]
-    [Migration("20231228093400_chahge entity")]
-    partial class chahgeentity
+    [Migration("20240109210315_ConfigDB")]
+    partial class ConfigDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
