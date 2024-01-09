@@ -1,6 +1,6 @@
 ﻿namespace OnlineFood.Common.Enums;
 
-public enum TrancationStatusEnum
+public enum TransactionstatusEnum
 {
 	Success,
 	UnSuccess
