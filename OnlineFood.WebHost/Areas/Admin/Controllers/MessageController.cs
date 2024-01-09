@@ -21,6 +21,6 @@ public class MessageController : Controller
     [HttpPost]
     public IActionResult Send(MessageDTO messageDTo)
     {
-        return RedirectToAction("Index", "Messages");
+        return RedirectToAction("Index", "Message");
     }
 }

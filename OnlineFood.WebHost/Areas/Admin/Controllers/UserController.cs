@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineFood.Application.Features.Users.Commands.Requests;
 
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
 [Area("Admin")]
-public class SocialMediaController : Controller
+public class UserController : Controller
 {
-    [HttpGet]
-    public IActionResult Index()
-    {
-        return View();
-    }
+	[HttpGet]
+	public IActionResult Index()
+	{
+		return View();
+	}
 
     [HttpGet]
     public IActionResult New()
@@ -18,7 +19,7 @@ public class SocialMediaController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> New(int id=0)
+    public async Task<IActionResult> New(CreateUserCommand command)
     {
         return View();
     }
