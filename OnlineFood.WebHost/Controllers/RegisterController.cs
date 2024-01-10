@@ -19,7 +19,7 @@ namespace OnlineFood.WebHost.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCustomer([FromBody] CreateCustomerCommand command)
+        public async Task<IActionResult> Create(/*[FromBody]*/ CreateCustomerCommand command)
         {
             var result = await mediator.Send(command);
             return Ok(new { Data = result });
