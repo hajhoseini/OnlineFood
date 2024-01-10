@@ -14,6 +14,7 @@ using OnlineFood.Domain.Entities.OrderItems;
 using OnlineFood.Domain.Entities.Orders;
 using OnlineFood.Domain.Entities.Provinces;
 using OnlineFood.Domain.Entities.RestaurantCategories;
+using OnlineFood.Domain.Entities.Resturants;
 using OnlineFood.Domain.Entities.SocialMedias;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.Domain.Entities.Wallets;
@@ -51,7 +52,7 @@ public class OnlineFoodDBConext : IdentityDbContext<User,Role,string>
     public DbSet<Order> Order { get; set; }
     public DbSet<Province> Province { get; set; }
     public DbSet<RestaurantCategory> RestaurantCategory { get; set; }
-    //public DbSet<Restaurant> Restaurant { get; set; }
+    public DbSet<Restaurant> Restaurant { get; set; }
     public DbSet<SocialMedia> SocialMedia { get; set; }
     //public DbSet<Transaction> Transaction { get; set; }
     public DbSet<Wallet> Wallet { get; set; }
