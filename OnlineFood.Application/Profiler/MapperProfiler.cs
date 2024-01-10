@@ -13,7 +13,7 @@ using OnlineFood.Application.Features.OrderItems.Commands.Requests;
 using OnlineFood.Application.Features.Orders.Commands.Requests;
 using OnlineFood.Application.Features.Provinces.Commands.Requests;
 using OnlineFood.Application.Features.RestaurantCategories.Commands.Requests;
-using OnlineFood.Application.Features.Transactions.Commands.Requests;
+using OnlineFood.Application.Features.AccountTransactions.Commands.Requests;
 using OnlineFood.Application.Features.Users.Commands.Requests;
 using OnlineFood.Application.Features.Wallets.Commands.Requests;
 using OnlineFood.Domain.Entities.Addresses;
@@ -28,7 +28,7 @@ using OnlineFood.Domain.Entities.OrderItems;
 using OnlineFood.Domain.Entities.Orders;
 using OnlineFood.Domain.Entities.Provinces;
 using OnlineFood.Domain.Entities.RestaurantCategories;
-using OnlineFood.Domain.Entities.Transactions;
+using OnlineFood.Domain.Entities.AccountTransactions;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.Domain.Entities.Wallets;
 
@@ -43,8 +43,8 @@ public class MapperProfiler : Profile
         CreateMap<User, CreateUserCommand>().ReverseMap();
         CreateMap<User, UpdateUserCommand>().ReverseMap();
 
-        CreateMap<Transaction, CreateTransactionCommand>().ReverseMap();
-        CreateMap<Transaction, UpdateTransactionCommand>().ReverseMap();
+        CreateMap<AccountTransaction, CreateAccountTransactionCommand>().ReverseMap();
+        CreateMap<AccountTransaction, UpdateAccountTransactionCommand>().ReverseMap();
 
         CreateMap<Comment, CreateCommentCommand>().ReverseMap();
         CreateMap<Comment, UpdateCommentCommand>().ReverseMap();
