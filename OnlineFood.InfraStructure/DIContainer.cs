@@ -12,7 +12,7 @@ using OnlineFood.Domain.InterfaceRepositories.OrderItems;
 using OnlineFood.Domain.InterfaceRepositories.Orders;
 using OnlineFood.Domain.InterfaceRepositories.Provinces;
 using OnlineFood.Domain.InterfaceRepositories.RestaurantCategories;
-using OnlineFood.Domain.InterfaceRepositories.Transactions;
+using OnlineFood.Domain.InterfaceRepositories.AccountTransactions;
 using OnlineFood.Domain.InterfaceRepositories.Users;
 using OnlineFood.Domain.InterfaceRepositories.Wallets;
 using OnlineFood.Domain.IReaders;
@@ -31,7 +31,7 @@ using OnlineFood.Domain.IReaders.Orders;
 using OnlineFood.Domain.IReaders.Provinces;
 using OnlineFood.Domain.IReaders.RestaurantCategories;
 using OnlineFood.Domain.IReaders.Restaurants;
-using OnlineFood.Domain.IReaders.Transactions;
+using OnlineFood.Domain.IReaders.AccountTransactions;
 using OnlineFood.Domain.IReaders.Users;
 using OnlineFood.Domain.IReaders.Wallets;
 using OnlineFood.Domain.IReaders.WorkTimes;
@@ -54,7 +54,7 @@ using OnlineFood.InfraStructure.Readers.OrderItems;
 using OnlineFood.InfraStructure.Readers.Orders;
 using OnlineFood.InfraStructure.Readers.Provinces;
 using OnlineFood.InfraStructure.Readers.Resturant;
-using OnlineFood.InfraStructure.Readers.Transactions;
+using OnlineFood.InfraStructure.Readers.AccountTransactions;
 using OnlineFood.InfraStructure.Readers.Users;
 using OnlineFood.InfraStructure.Readers.Wallets;
 using OnlineFood.InfraStructure.Repositories;
@@ -73,10 +73,10 @@ using OnlineFood.InfraStructure.Repositories.Orders;
 using OnlineFood.InfraStructure.Repositories.Provinces;
 using OnlineFood.InfraStructure.Repositories.RestaurantCategories;
 using OnlineFood.InfraStructure.Repositories.Resturant;
-using OnlineFood.InfraStructure.Repositories.Transactions;
 using OnlineFood.InfraStructure.Repositories.Users;
 using OnlineFood.InfraStructure.Repositories.Wallets;
 using OnlineFood.InfraStructure.Repositories.WorkTimeReaderRe;
+using OnlineFood.InfraStructure.Repositories.AccountTransactions;
 
 namespace OnlineFood.InfraStructure;
 
@@ -91,16 +91,16 @@ public static class DIContainer
         service.AddScoped<IFavoriteRepository, FavoriteRepository>();
         service.AddScoped<IOrderItemRepository, OrderItemRepository>();
         service.AddScoped<IOrderRepository, OrderRepository>();
-		    service.AddScoped<ITransactionRepository, TransactionRepository>();
-		    service.AddScoped<IAddressRepository, AddressRepository>();
-		    service.AddScoped<IMessageRepository, MessageRepository>();
-		    service.AddScoped<INotificationRepository, NotificationRepository>();
-		    service.AddScoped<IWalletRepository, WalletRepository>();
+        service.AddScoped<IAccountTransactionRepository, AccountTransactionRepository>();
+        service.AddScoped<IAddressRepository, AddressRepository>();
+        service.AddScoped<IMessageRepository, MessageRepository>();
+        service.AddScoped<INotificationRepository, NotificationRepository>();
+        service.AddScoped<IWalletRepository, WalletRepository>();
         service.AddScoped<ICityRepository, CityRepository>();
         service.AddScoped<IProvinceRepository, ProvinceRepository>();
         service.AddScoped<IMenuCategoryRepository, MenuCategoryRepository>();
         service.AddScoped<IRestaurantCategoryRepository, RestaurantCategoryRepository>();
-      
+
         service.AddScoped(typeof(IGenericReader<>), typeof(GenericReader<>));
         service.AddScoped<IUserReader, UserReader>();
         service.AddScoped<ICommentReader, CommentReader>();
@@ -108,11 +108,11 @@ public static class DIContainer
         service.AddScoped<IFavoriteReader, FavoriteReader>();
         service.AddScoped<IOrderItemReader, OrderItemReader>();
         service.AddScoped<IOrderReader, OrderReader>();
-		    service.AddScoped<ITransactionReader, TransactionReader>();
-		    service.AddScoped<IAddressReader, AddressReader>();
-		    service.AddScoped<IMessageReader, MessageReader>();
-		    service.AddScoped<INotificationReader, NotificationReader>();
-		    service.AddScoped<IWalletReader, WalletReader>();
+        service.AddScoped<IAccountTransactionReader, AccountTransactionReader>();
+        service.AddScoped<IAddressReader, AddressReader>();
+        service.AddScoped<IMessageReader, MessageReader>();
+        service.AddScoped<INotificationReader, NotificationReader>();
+        service.AddScoped<IWalletReader, WalletReader>();
         service.AddScoped<ICityReader, CityReader>();
         service.AddScoped<IProvinceReader, ProvinceReader>();
         service.AddScoped<IMenuCategoryReader, MenuCategoryReader>();
@@ -126,9 +126,9 @@ public static class DIContainer
         service.AddScoped<IMenuRepository, MenuRepository>();
         service.AddScoped<IMenuItemReader, MenuItemReader>();
         service.AddScoped<IMenuItemRepository, MenuItemRepository>();
-      
+
         service.AddScoped<IUnitOfWork, UnitOfWork>();
 
-		return service;
+        return service;
     }
 }
