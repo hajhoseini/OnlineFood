@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using OnlineFood.Domain.Entities.AccountTransactions;
 using OnlineFood.Domain.Entities.Addresses;
 using OnlineFood.Domain.Entities.Cities;
 using OnlineFood.Domain.Entities.Comments;
@@ -54,7 +55,7 @@ public class OnlineFoodDBConext : IdentityDbContext<User,Role,string>
     public DbSet<RestaurantCategory> RestaurantCategory { get; set; }
     public DbSet<Restaurant> Restaurant { get; set; }
     public DbSet<SocialMedia> SocialMedia { get; set; }
-    //public DbSet<Transaction> Transaction { get; set; }
+    public DbSet<AccountTransaction> AccountTransaction { get; set; }
     public DbSet<Wallet> Wallet { get; set; }
     public DbSet<WorkTime> WorkTime { get; set; }
 }
