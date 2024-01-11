@@ -57,7 +57,7 @@ public class UnitOfWork : IUnitOfWork
 			closedRepositoryType = dic[closedRepositoryType];
 		}
 
-		_repositories.Add(type, Activator.CreateInstance(closedRepositoryType, _context, _mapper));
+		_repositories.Add(type, Activator.CreateInstance(closedRepositoryType, _context));
 
 		return (IGenericRepository<TEntity>)_repositories[type];
 	}
