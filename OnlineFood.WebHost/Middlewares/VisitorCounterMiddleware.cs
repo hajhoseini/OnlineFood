@@ -30,10 +30,10 @@ namespace OnlineFood.WebHost.Middlewares
             //    SiteViewLog siteViewLog = new() { CreateDate = DateTime.Now, IP = ip, Browser = "" };
 
             //    await _dbContext.AddAsync(siteViewLog);
-            //    await _dbContext.SaveChangesAsync();
-
-            //    await _next(httpContext);
+            //    await _dbContext.SaveChangesAsync();                
             //}
+
+            await _next(httpContext);
         }
     }
 
