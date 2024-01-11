@@ -16,6 +16,7 @@ using OnlineFood.Domain.Entities.Orders;
 using OnlineFood.Domain.Entities.Provinces;
 using OnlineFood.Domain.Entities.RestaurantCategories;
 using OnlineFood.Domain.Entities.Resturants;
+using OnlineFood.Domain.Entities.SiteViewLogs;
 using OnlineFood.Domain.Entities.SocialMedias;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.Domain.Entities.Wallets;
@@ -58,4 +59,6 @@ public class OnlineFoodDBConext : IdentityDbContext<User,Role,string>
     public DbSet<AccountTransaction> AccountTransaction { get; set; }
     public DbSet<Wallet> Wallet { get; set; }
     public DbSet<WorkTime> WorkTime { get; set; }
+
+    public DbSet<SiteViewLog> SiteViewLog { get; set; }
 }
