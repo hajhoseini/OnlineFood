@@ -31,7 +31,7 @@ public class RestaurantCategoryController : Controller
     [HttpPost]
     public async Task<IActionResult> New(CreateRestaurantCategoryCommand dto)
     {
-        dto.Id = 1;
+        //dto.Id = 1;
         dto.CreateDate = DateTime.Now;
         var result = await _mediator.Send(dto);
         return Ok(result);
