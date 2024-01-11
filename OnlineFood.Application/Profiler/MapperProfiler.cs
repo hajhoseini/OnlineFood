@@ -31,6 +31,9 @@ using OnlineFood.Domain.Entities.RestaurantCategories;
 using OnlineFood.Domain.Entities.AccountTransactions;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.Domain.Entities.Wallets;
+using OnlineFood.Domain.IReaders.SiteViewLogs;
+using OnlineFood.Domain.Entities.SiteViewLogs;
+using OnlineFood.Application.Features.SiteViewLogs.Commands.Requests;
 
 namespace OnlineFood.Application.Profiler;
 
@@ -88,5 +91,7 @@ public class MapperProfiler : Profile
 
         CreateMap<Province, CreateProvinceCommand>().ReverseMap();
         CreateMap<Province, UpdateProvinceCommand>().ReverseMap();
+
+        CreateMap<SiteViewLog, CreateSiteViewLogCommand>().ReverseMap();
     }
 }

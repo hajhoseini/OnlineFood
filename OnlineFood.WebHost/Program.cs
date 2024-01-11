@@ -6,6 +6,7 @@ using OnlineFood.Application.Features.Users.Commands.RequestHandlers;
 using OnlineFood.Domain.Entities.Users;
 using OnlineFood.InfraStructure;
 using OnlineFood.InfraStructure.DBContext;
+using OnlineFood.WebHost.Middlewares;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -61,5 +62,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseVisitorCounterMiddleware();
 
 app.Run();

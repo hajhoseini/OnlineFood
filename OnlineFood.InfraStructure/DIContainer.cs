@@ -77,6 +77,10 @@ using OnlineFood.InfraStructure.Repositories.Users;
 using OnlineFood.InfraStructure.Repositories.Wallets;
 using OnlineFood.InfraStructure.Repositories.WorkTimeReaderRe;
 using OnlineFood.InfraStructure.Repositories.AccountTransactions;
+using OnlineFood.Domain.IReaders.SiteViewLogs;
+using OnlineFood.Domain.IRepositories.SiteViewLogs;
+using OnlineFood.InfraStructure.Readers.SiteViewLogs;
+using OnlineFood.InfraStructure.Repositories.SiteViewLogs;
 
 namespace OnlineFood.InfraStructure;
 
@@ -126,6 +130,9 @@ public static class DIContainer
         service.AddScoped<IMenuRepository, MenuRepository>();
         service.AddScoped<IMenuItemReader, MenuItemReader>();
         service.AddScoped<IMenuItemRepository, MenuItemRepository>();
+
+        service.AddScoped<ISiteViewLogReader, SiteViewLogReader>();
+        service.AddScoped<ISiteViewLogRepository, SiteViewLogRepository>();
 
         service.AddScoped<IUnitOfWork, UnitOfWork>();
 
