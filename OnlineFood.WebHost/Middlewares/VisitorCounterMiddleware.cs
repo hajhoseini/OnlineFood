@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using OnlineFood.Application.Features.SiteViewLogs.Commands.Requests;
 
 namespace OnlineFood.WebHost.Middlewares
@@ -25,11 +25,9 @@ namespace OnlineFood.WebHost.Middlewares
                 string ip = httpContext.Connection.RemoteIpAddress.ToString();
 
                 CreateSiteViewLogCommand command = new()
-                {
-                    CreateDate = DateTime.Now,
-                    IP = ip,
-                    Browser = (browser != null ? browser : "")
-                };
+                                            { CreateDate = DateTime.Now, 
+                                                IP = ip, 
+                                                Browser = (browser != null ? browser : "") };
 
                 var result = await mediator.Send(command);
             }
