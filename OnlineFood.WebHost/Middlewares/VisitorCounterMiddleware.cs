@@ -1,5 +1,5 @@
-﻿using OnlineFood.Domain.Entities.SiteViewLogs;
-using OnlineFood.InfraStructure.DBContext;
+using MediatR;
+using OnlineFood.Application.Features.SiteViewLogs.Commands.Requests;
 
 namespace OnlineFood.WebHost.Middlewares
 {
@@ -7,31 +7,30 @@ namespace OnlineFood.WebHost.Middlewares
     public class VisitorCounterMiddleware
     {
         private readonly RequestDelegate _next;
-        //private readonly OnlineFoodDBConext _dbContext;
+        private IMediator _mediator;
 
-        public VisitorCounterMiddleware(RequestDelegate next/*, OnlineFoodDBConext dbContext*/)
+        public VisitorCounterMiddleware(RequestDelegate next)
         {
-            //_dbContext = dbContext;
             _next = next;
         }
 
-        public async Task InvokeAsync(HttpContext httpContext)
+        public async Task Invoke(HttpContext httpContext, IMediator mediator)
         {
-            //if (!httpContext.Request.Path.ToString().ToLower().Contains("/admin"))
-            //{
-            //    var userInfo = httpContext.Request.Headers["User-Agent"];
-            //    string ip = httpContext.Connection.RemoteIpAddress.ToString();
+            string path = httpContext.Request.Path.ToString().ToLower();
+            if (!path.Contains("/admin") && !path.Contains("/restaurant"))
+            {
+                _mediator = mediator;
 
-            //    //    CreateSiteViewLogCommand command = new()
-            //    //    { CreateDate = DateTime.Now, IP = ip, Browser = "" };
-            //    //    var result = await mediator.Send(command);
-            //    //}           
+                string browser = httpContext.Request.Headers["User-Agent"];
+                string ip = httpContext.Connection.RemoteIpAddress.ToString();
 
-            //    SiteViewLog siteViewLog = new() { CreateDate = DateTime.Now, IP = ip, Browser = "" };
+                CreateSiteViewLogCommand command = new()
+                                            { CreateDate = DateTime.Now, 
+                                                IP = ip, 
+                                                Browser = (browser != null ? browser : "") };
 
-            //    await _dbContext.AddAsync(siteViewLog);
-            //    await _dbContext.SaveChangesAsync();                
-            //}
+                var result = await mediator.Send(command);
+            }
 
             await _next(httpContext);
         }
