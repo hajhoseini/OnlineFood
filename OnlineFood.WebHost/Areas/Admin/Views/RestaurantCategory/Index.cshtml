@@ -1,15 +1,17 @@
-﻿<div class="content-wrapper" style="min-height: 265.6px;">
+﻿@using OnlineFood.Application.Dtos.RestaurantCategory;
+@model List<RestaurantCategoryDTO>
+<div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>مدیریت دسته بندی فروشنده ها</h1>
+                    <h1>مدیریت دسته بندی رستوران</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">مدیریت دسته بندی فروشنده ها</li>
+                        <li class="breadcrumb-item active">مدیریت دسته بندی رستوران</li>
                     </ol>
                 </div>
             </div>
@@ -28,7 +30,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-header">
-                            <h3 class="card-title">لیست دسته بندی فروشنده ها</h3>
+                            <h3 class="card-title">لیست دسته بندی رستوران</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -43,7 +45,7 @@
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover">
-                                <tr>
+@*                                 <tr>
                                     <th>شماره</th>
                                     <th>عنوان</th>
                                     <th>توضیحات</th>
@@ -66,7 +68,16 @@
                                     <td>میوه</td>
                                     <td>میوه فروشی و تره بار</td>
                                     <td>16 فروشنده</td>
-                                </tr>
+                                </tr> *@
+                                @foreach (var category in Model)
+                                {
+                                    <tr>
+                                        <td>@category.Id</td>
+                                        <td>@category.Title</td>
+                                        <td>@category.Description</td>
+                                        
+                                    </tr>
+                                }
                             </table>
                         </div>
                         <!-- /.card-body -->

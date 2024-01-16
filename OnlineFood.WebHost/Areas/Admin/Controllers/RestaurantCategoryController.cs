@@ -2,24 +2,25 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OnlineFood.Application.Features.RestaurantCategories.Commands.Requests;
 using OnlineFood.Application.Dtos.RestaurantCategory;
+using OnlineFood.Application.Features.RestaurantCategories.Queries.Requests;
 
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class RestaurantCategoryController : Controller
 {
-    private readonly IMediator _mediator;
+    private readonly IMediator mediator;
 
     public RestaurantCategoryController(IMediator mediator)
     {
-        _mediator = mediator;
+        this.mediator = mediator;
     }
 
-
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var categories = await mediator.Send(new ListRestaurantCategoriesQuery());
+        return View(categories);
     }
 
     [HttpGet]
@@ -33,7 +34,7 @@ public class RestaurantCategoryController : Controller
     {
         //dto.Id = 1;
         dto.CreateDate = DateTime.Now;
-        var result = await _mediator.Send(dto);
+        var result = await mediator.Send(dto);
         return Ok(result);
         //return RedirectToAction("Index", "RestaurantCategory");
     }
