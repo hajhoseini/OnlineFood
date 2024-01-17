@@ -21,7 +21,7 @@ public class GenericReader<T> : IGenericReader<T> where T : class
 
     public async Task<IReadOnlyList<T>> GetList(Expression<Func<T, bool>>? whereVariable = null, string join = "")
     {
-        var all = _dbContext.Set<T>().AsQueryable();
+        var all = _dbContext.Set<T>().AsQueryable().AsNoTracking();
         if (whereVariable != null)
         {
             all = all.Where(whereVariable);

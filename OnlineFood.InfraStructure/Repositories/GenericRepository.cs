@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineFood.Domain.InterfaceRepositories;
 using OnlineFood.InfraStructure.DBContext;
+using System.Reflection;
 
 namespace OnlineFood.InfraStructure.Repositories;
 
@@ -15,6 +16,12 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public async Task<bool> Create(T entity)
     {
+        PropertyInfo propertyInfo = entity.GetType().GetProperty("CreateDate");
+        if (propertyInfo != null)
+        {
+            propertyInfo.SetValue(entity, Convert.ChangeType(DateTime.Now, propertyInfo.PropertyType), null);
+        }
+
         await _dbContext.Set<T>().AddAsync(entity);
         await _dbContext.SaveChangesAsync();
         return true;
