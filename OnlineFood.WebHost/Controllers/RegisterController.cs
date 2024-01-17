@@ -1,28 +1,36 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Features.Customers.Commands.Requests;
+using OnlineFood.Application.Dtos.Register;
+using OnlineFood.Application.Features.Register.Commands.Requests;
+using OnlineFood.Common;
 
 namespace OnlineFood.WebHost.Controllers
 {
     public class RegisterController : Controller
     {
-        private readonly IMediator mediator;
+        private readonly IMediator _mediator;
 
         public RegisterController(IMediator mediator)
         {
-            this.mediator = mediator;
+            _mediator = mediator;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View("Create");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(/*[FromBody]*/ CreateCustomerCommand command)
+        public async Task<IActionResult> Create(RegisterDto dto)
         {
-            var result = await mediator.Send(command);
-            return Ok(new { Data = result });
+            ResultDto result = await _mediator.Send(new RegisterCommand() { register = dto });
+            if(!result.IsSuccess)
+            {
+                ViewBag.Error = result.Message;
+                return View(dto);
+            }
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
