@@ -5,6 +5,7 @@ using OnlineFood.Application.Features.Users.Queries.Requests;
 
 namespace OnlineFood.WebHost.Areas.Controllers;
 
+[Area("Admin")]
 public class LoginController : Controller
 {
 	private readonly IMediator _mediator;

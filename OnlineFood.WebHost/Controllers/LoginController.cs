@@ -5,7 +5,6 @@ using OnlineFood.Application.Features.Users.Queries.Requests;
 
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 
-[Area("Admin")]
 public class LoginController : Controller
 {
 	private readonly IMediator _mediator;
@@ -24,12 +23,12 @@ public class LoginController : Controller
 	[HttpPost]
 	public async Task<IActionResult> Index(LoginDto dto)
 	{
-		/*var res = await _mediator.Send(new LoginQuery() { login = dto });
+		var res = await _mediator.Send(new LoginQuery() { login = dto });
 		if (res == false)
 		{
 			ViewBag.Error = "نام کاربری یا کلمه عبور اشتباه است";
 			return View(dto);
-		}*/
+		}
 		return RedirectToAction("Index", "Home");
 	}
 }
