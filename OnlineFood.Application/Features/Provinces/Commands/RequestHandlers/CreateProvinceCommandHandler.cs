@@ -13,8 +13,8 @@ public class CreateProvinceCommandHandler : IRequestHandler<CreateProvinceComman
 
 	public CreateProvinceCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
 	{
-		this._unitOfWork = unitOfWork;
-		this._mapper = mapper;
+		_unitOfWork = unitOfWork;
+		_mapper = mapper;
 	}
 
 	public async Task<bool> Handle(CreateProvinceCommand request, CancellationToken cancellationToken)

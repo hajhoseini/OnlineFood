@@ -17,8 +17,8 @@ public class UserCommandService : IUserCommandService
 
     public async Task<bool> Login(LoginDto dto)
     {
-        var result = await _signInManager.PasswordSignInAsync(dto.Username, 
-                                                            dto.password, 
+        var result = await _signInManager.PasswordSignInAsync(dto.Username,
+                                                            dto.password,
                                                             dto.RememberMe,
                                                             lockoutOnFailure: false);
         if (result.Succeeded)
@@ -29,7 +29,7 @@ public class UserCommandService : IUserCommandService
         {
             return false;
         }
-    }    
+    }
 
     public async Task<bool> Register(RegisterViewModel dto)
     {
@@ -49,5 +49,19 @@ public class UserCommandService : IUserCommandService
     {
         await _signInManager.SignOutAsync();
         return true;
+    }
+
+    public async Task<bool> ChangePassword(ChangePasswordDTO dto)
+    {
+        var user = await _userManager.FindByNameAsync(dto.UserName);
+        var result = await _userManager.ChangePasswordAsync(user, dto.CurrentPassword, dto.NewPassword);
+
+        if (result.Succeeded)
+        {
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            return true;
+        }
+
+        return false;
     }
 }

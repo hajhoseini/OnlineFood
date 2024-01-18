@@ -11,7 +11,7 @@ public class DeleteCityCommandHandler : IRequestHandler<DeleteCityCommand, bool>
 
 	public DeleteCityCommandHandler(ICityRepository CityRepository)
 	{
-		this._CityRepository = CityRepository;
+		_CityRepository = CityRepository;
 	}
 
 	public Task<bool> Handle(DeleteCityCommand request, CancellationToken cancellationToken)

@@ -13,8 +13,8 @@ public class UpdateProvinceCommandHandler : IRequestHandler<UpdateProvinceComman
 
 	public UpdateProvinceCommandHandler(IProvinceRepository ProvinceRepository, IMapper mapper)
 	{
-		this._ProvinceRepository = ProvinceRepository;
-		this._mapper = mapper;
+		_ProvinceRepository = ProvinceRepository;
+		_mapper = mapper;
 	}
 
 	public Task<bool> Handle(UpdateProvinceCommand request, CancellationToken cancellationToken)

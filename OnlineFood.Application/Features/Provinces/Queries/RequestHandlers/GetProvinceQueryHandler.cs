@@ -1,21 +1,27 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using OnlineFood.Application.Dtos.Province;
 using OnlineFood.Application.Features.Provinces.Queries.Requests;
-using OnlineFood.Domain.Entities.Provinces;
 using OnlineFood.Domain.IReaders.Provinces;
 
 namespace OnlineFood.Application.Features.Provinces.Queries.RequestHandlers;
 
-public class GetProvinceQueryHandler : IRequestHandler<GetProvinceQuery, Province>
+public class GetProvinceQueryHandler : IRequestHandler<GetProvinceQuery, ProvinceDTO>
 {
 	private readonly IProvinceReader _ProvinceReader;
+	private readonly IMapper _mapper;
 
-	public GetProvinceQueryHandler(IProvinceReader ProvinceReader)
+	public GetProvinceQueryHandler(IProvinceReader ProvinceReader, IMapper mapper)
 	{
-		this._ProvinceReader = ProvinceReader;
+		_ProvinceReader = ProvinceReader;
+		_mapper = mapper;
 	}
 
-	public async Task<Province> Handle(GetProvinceQuery request, CancellationToken cancellationToken)
+
+	public async Task<ProvinceDTO> Handle(GetProvinceQuery request, CancellationToken cancellationToken)
 	{
-		return await _ProvinceReader.GetById(request.Id);
+		var queryResult = await _ProvinceReader.GetById(request.Id);
+		ProvinceDTO result=_mapper.Map<ProvinceDTO>(queryResult);
+		return result;
 	}
 }

@@ -13,8 +13,8 @@ public class CreateRestaurantCategoryCommandHandler : IRequestHandler<CreateRest
 
 	public CreateRestaurantCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
 	{
-		this._unitOfWork = unitOfWork;
-		this._mapper = mapper;
+		_unitOfWork = unitOfWork;
+		_mapper = mapper;
 	}
 
 	public async Task<bool> Handle(CreateRestaurantCategoryCommand request, CancellationToken cancellationToken)

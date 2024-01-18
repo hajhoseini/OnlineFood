@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using OnlineFood.Domain.Entities.Provinces;
+using OnlineFood.Application.Dtos.Province;
 
 namespace OnlineFood.Application.Features.Provinces.Queries.Requests;
 
-public class GetProvinceQuery : IRequest<Province>
+public class GetProvinceQuery : IRequest<ProvinceDTO>
 {
 	public int Id { get; set; }
 }

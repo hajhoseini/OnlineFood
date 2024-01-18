@@ -1,4 +1,9 @@
+@using OnlineFood.WebHost.Areas.Admin.Controllers
 @model OnlineFood.Application.Dtos.RestaurantCategory.RestaurantCategoryDTO
+@{
+    var controller = nameof(RestaurantCategoryController).Replace("Controller", "");
+    var indexAction = nameof(RestaurantCategoryController.Index);
+}
 
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
@@ -45,8 +50,8 @@
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">ثبت</button>
-                                <input class="btn btn-default"
-                                       type="button" value="لغو و بازگشت" onclick="location.href='@Url.Action("Index", "RestaurantCategory")'" />
+                                <input class="btn btn-default" type="button" value="لغو و بازگشت"
+                                       onclick="location.href='@Url.Action(indexAction, controller)'" />
                             </div>
                         </form>
                     </div>

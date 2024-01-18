@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using OnlineFood.Domain.Entities.Provinces;
+using OnlineFood.Application.Dtos.Province;
 
 namespace OnlineFood.Application.Features.Provinces.Queries.Requests;
 
-public class GetListProvincesQuery : IRequest<List<Province>>
+public class GetListProvincesQuery : IRequest<List<ProvinceDTO>>
 {
 }

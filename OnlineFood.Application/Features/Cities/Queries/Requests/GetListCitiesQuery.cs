@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using OnlineFood.Domain.Entities.Cities;
+using OnlineFood.Application.Dtos.Cities;
 
 namespace OnlineFood.Application.Features.Cities.Queries.Requests;
 
-public class GetListCitesQuery : IRequest<List<City>>
+public class GetListCitesQuery : IRequest<List<CityDTO>>
 {
 }

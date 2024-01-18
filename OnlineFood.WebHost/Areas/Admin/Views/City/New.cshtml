@@ -1,3 +1,11 @@
+@using OnlineFood.Application.Dtos.Cities
+@using OnlineFood.WebHost.Areas.Admin.Controllers
+@model CityDTO
+@{
+    var controller = nameof(CityController).Replace("Controller", "");
+    var indexAction = nameof(CityController.Index);
+}
+
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -31,16 +39,23 @@
                         <form role="form" asp-controller="City" asp-action="New" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    @* <label asp-for="Title"></label> *@
-                                    <input type="text" class="form-control" name="Title">
+                                    <label asp-for="Province.Name"></label>
+                                    <input type="text" class="form-control" name="ProvinceName" value="@Model.Province.Name" disabled>
+                                    @Html.HiddenFor(x => x.ProvinceId)
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label asp-for="Name"></label>
+                                    <input type="text" class="form-control" name="Name">
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">ثبت</button>
-                                <input class="btn btn-default"
-                                       type="button" value="لغو و بازگشت" onclick="location.href='@Url.Action("Index", "City")'" />
+                                <input class="btn btn-default"type="button" value="لغو و بازگشت"
+                                       onclick="location.href='@Url.Action(indexAction, controller)'" />
                             </div>
                         </form>
                     </div>

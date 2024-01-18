@@ -1,3 +1,10 @@
+@using OnlineFood.WebHost.Areas.Admin.Controllers
+@model OnlineFood.Application.Dtos.Province.ProvinceDTO
+@{
+    var controller = nameof(ProvinceController).Replace("Controller", "");
+    var indexAction = nameof(ProvinceController.Index);
+}
+
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -31,16 +38,16 @@
                         <form role="form" asp-controller="Province" asp-action="New" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    @* <label asp-for=""></label> *@
-                                    <input type="text" class="form-control" name="Title">
+                                    <label asp-for="Name"></label>
+                                    <input type="text" class="form-control" name="Name">
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">ثبت</button>
-                                <input class="btn btn-default"
-                                       type="button" value="لغو و بازگشت" onclick="location.href='@Url.Action("Index", "Province")'" />
+                                <input class="btn btn-default" type="button" value="لغو و بازگشت"
+                                       onclick="location.href='@Url.Action(indexAction, controller)'" />
                             </div>
                         </form>
                     </div>

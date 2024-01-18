@@ -34,6 +34,9 @@ using OnlineFood.Domain.Entities.Wallets;
 using OnlineFood.Domain.IReaders.SiteViewLogs;
 using OnlineFood.Domain.Entities.SiteViewLogs;
 using OnlineFood.Application.Features.SiteViewLogs.Commands.Requests;
+using OnlineFood.Application.Dtos.RestaurantCategory;
+using OnlineFood.Application.Dtos.Province;
+using OnlineFood.Application.Dtos.Cities;
 
 namespace OnlineFood.Application.Profiler;
 
@@ -85,12 +88,15 @@ public class MapperProfiler : Profile
 
         CreateMap<RestaurantCategory, CreateRestaurantCategoryCommand>().ReverseMap();
         CreateMap<RestaurantCategory, UpdateRestaurantCategoryCommand>().ReverseMap();
+        CreateMap<RestaurantCategory, RestaurantCategoryDTO>().ReverseMap();
 
         CreateMap<City, CreateCityCommand>().ReverseMap();
         CreateMap<City, UpdateCityCommand>().ReverseMap();
+        CreateMap<City, CityDTO>().ReverseMap();
 
         CreateMap<Province, CreateProvinceCommand>().ReverseMap();
         CreateMap<Province, UpdateProvinceCommand>().ReverseMap();
+        CreateMap<Province, ProvinceDTO>().ReverseMap();
 
         CreateMap<SiteViewLog, CreateSiteViewLogCommand>().ReverseMap();
     }

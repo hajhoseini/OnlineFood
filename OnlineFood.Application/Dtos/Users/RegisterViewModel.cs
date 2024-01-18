@@ -1,21 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineFood.Application.Dtos.Users;
 
 public class RegisterViewModel
 {
-    [Required(ErrorMessage = "باید پرده")]
+    [DisplayName("نام کاربری")]
+    [Required(ErrorMessage = "اجباری")]
     public string UserName { get; set; }
 
-    [Required]
-    [EmailAddress]
+
+    [DisplayName("ایمیل")]
+    [Required(ErrorMessage = "اجباری")]
+    [EmailAddress(ErrorMessage = "ایمیل نامعتبر")]
     public string Email { get; set; }
 
-    [Required]
+    [DisplayName("رمز عبور")]
+    [Required(ErrorMessage = "اجباری")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
 
+    [DisplayName("تکرار رمز عبور")]
+    [Required(ErrorMessage = "اجباری")]
     [DataType(DataType.Password)]
-    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+    [Compare("Password", ErrorMessage = "رمز عبور و تکرار آن باید یکسان باشد")]
     public string ConfirmPassword { get; set; }
 }

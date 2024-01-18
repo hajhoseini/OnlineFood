@@ -23,7 +23,7 @@ namespace OnlineFood.WebHost.Controllers
         [HttpGet]
         public async Task<IActionResult> DisplayCategories()
         {
-            var categories = await mediator.Send(new ListRestaurantCategoriesQuery());
+            var categories = await mediator.Send(new GetListRestaurantCategoriesQuery());
             return View(categories);
         }
     }

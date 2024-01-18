@@ -1,17 +1,25 @@
-﻿@using OnlineFood.Application.Dtos.RestaurantCategory;
+﻿@using OnlineFood.Application.Dtos.RestaurantCategory
+@using OnlineFood.WebHost.Areas.Admin.Controllers
 @model List<RestaurantCategoryDTO>
+@{
+    var controller = nameof(RestaurantCategoryController).Replace("Controller", "");
+    var newAction = nameof(RestaurantCategoryController.New);
+    var deleteAction = nameof(RestaurantCategoryController.Delete);
+    var editAction = nameof(RestaurantCategoryController.Edit);
+}
+
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>مدیریت دسته بندی رستوران</h1>
+                    <h1>مدیریت دسته بندی فروشنده ها</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">مدیریت دسته بندی رستوران</li>
+                        <li class="breadcrumb-item active">مدیریت دسته بندی فروشنده ها</li>
                     </ol>
                 </div>
             </div>
@@ -25,12 +33,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header p-2">
-                            <input class="btn btn-primary"
-                                   type="button" value="ایجاد دسته بندی جدید" onclick="location.href='@Url.Action("New", "RestaurantCategory")'" />
+                            <input class="btn btn-primary" type="button" value="ایجاد دسته بندی جدید"
+                                   onclick="location.href='@Url.Action(newAction,controller)'" />
                         </div>
                         <!-- /.card-header -->
                         <div class="card-header">
-                            <h3 class="card-title">لیست دسته بندی رستوران</h3>
+                            <h3 class="card-title">لیست دسته بندی فروشنده ها</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -45,39 +53,32 @@
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover">
-@*                                 <tr>
-                                    <th>شماره</th>
+                                <tr>
+                                    <th>شناسه</th>
                                     <th>عنوان</th>
                                     <th>توضیحات</th>
-                                    <th>تعداد</th>
+                                    <th>تاریخ</th>
+                                    <th>تعداد فروشنده</th>
+                                    <th>عملیات</th>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>غذای ایرانی</td>
-                                    <td>غذاهای سنتی ایرانی</td>
-                                    <td>21 فروشنده</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>کیک و شیرینی</td>
-                                    <td>قنادی  و شیرینی فروشی</td>
-                                    <td>7 فروشنده</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>میوه</td>
-                                    <td>میوه فروشی و تره بار</td>
-                                    <td>16 فروشنده</td>
-                                </tr> *@
-                                @foreach (var category in Model)
+                                @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>@category.Id</td>
-                                        <td>@category.Title</td>
-                                        <td>@category.Description</td>
-                                        
+                                        <td>@item.Id</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.CreateDate</td>
+                                        <td>0</td>
+                                        <td>
+                                            <input class="btn btn-warning" type="button" value="ویرایش"
+                                                   onclick="location.href='@Url.Action(editAction, controller, new { Id = item.Id })'" />
+
+                                            <input class="btn btn-danger" type="button" value="حذف"
+                                                   onclick="location.href='@Url.Action(deleteAction, controller,new{Id=item.Id})'" />
+                                        </td>
                                     </tr>
                                 }
+
                             </table>
                         </div>
                         <!-- /.card-body -->

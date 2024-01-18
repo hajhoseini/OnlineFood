@@ -199,10 +199,12 @@ namespace OnlineFood.InfraStructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("ProvinceId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("ProvinceId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProvinceId");
 
                     b.ToTable("City");
                 });
@@ -934,6 +936,22 @@ namespace OnlineFood.InfraStructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("OnlineFood.Domain.Entities.Cities.City", b =>
+                {
+                    b.HasOne("OnlineFood.Domain.Entities.Provinces.Province", "Province")
+                        .WithMany("Cities")
+                        .HasForeignKey("ProvinceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Province");
+                });
+
+            modelBuilder.Entity("OnlineFood.Domain.Entities.Provinces.Province", b =>
+                {
+                    b.Navigation("Cities");
                 });
 #pragma warning restore 612, 618
         }
