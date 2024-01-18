@@ -7,8 +7,7 @@ namespace OnlineFood.WebHost.Middlewares
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
     public class VisitorCounterMiddleware
     {
-        private readonly RequestDelegate _next;
-        private IMediator _mediator;
+        private readonly RequestDelegate _next;        
 
         public VisitorCounterMiddleware(RequestDelegate next)
         {
