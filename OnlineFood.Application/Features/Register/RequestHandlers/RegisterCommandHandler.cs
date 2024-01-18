@@ -9,7 +9,7 @@ using OnlineFood.Domain.Entities.Users;
 using OnlineFood.Domain.IReaders.Users;
 using OnlineFood.Domain.IRepositories;
 
-namespace OnlineFood.Application.Features.Customers.Commands.RequestHandlers;
+namespace OnlineFood.Application.Features.Register.Commands.RequestHandlers;
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResultDto>
 {
