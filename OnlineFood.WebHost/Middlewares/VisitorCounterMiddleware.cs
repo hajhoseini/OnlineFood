@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Http.Extensions;
 using OnlineFood.Application.Features.SiteViewLogs.Commands.Requests;
 
 namespace OnlineFood.WebHost.Middlewares
@@ -16,9 +17,9 @@ namespace OnlineFood.WebHost.Middlewares
 
         public async Task Invoke(HttpContext httpContext, IMediator mediator)
         {
-            string path = httpContext.Request.Path.ToString().ToLower();
-            if (!path.Contains("/admin") && !path.Contains("/restaurant"))
-            {
+			var url = httpContext.Request.GetDisplayUrl().ToLower();
+			if (url == "https://localhost:7194/login" || url == "https://localhost:7194/restaurant/login")
+			{
                 _mediator = mediator;
 
                 string browser = httpContext.Request.Headers["User-Agent"];
