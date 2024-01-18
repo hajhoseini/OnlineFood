@@ -1,4 +1,16 @@
-﻿<div class="content-wrapper" style="min-height: 265.6px;">
+﻿@using OnlineFood.Application.Dtos.Cities
+@using OnlineFood.WebHost.Areas.Admin.Controllers
+@model List<CityDTO>
+@{
+    var controller = nameof(CityController).Replace("Controller", "");
+    var controllerProvince = nameof(ProvinceController).Replace("Controller", "");
+    var indexProvince = nameof(ProvinceController.Index);
+    var newAction = nameof(CityController.New);
+    var deleteAction = nameof(CityController.Delete);
+    var editAction = nameof(CityController.Edit);
+}
+
+<div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
@@ -23,8 +35,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header p-2">
-                            <input class="btn btn-primary"
-                                   type="button" value="ثبت جدید" onclick="location.href='@Url.Action("New", "City")'" />
+                            <span>برای ثبت شهر جدید باید از لیست استانها و ستون عملیات روی دکمه ثبت شهر جدید کلیک کنید</span>
+                            <input class="btn btn-primary" type="button" value="ثبت جدید"
+                                   onclick="location.href='@Url.Action(indexProvince, controllerProvince)'" />
                         </div>
                         <!-- /.card-header -->
                         <div class="card-header">
@@ -44,26 +57,29 @@
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover">
                                 <tr>
-                                    <th>ردیف</th>
-                                    <th>کاربر</th>
-                                    <th>محله</th>
-                                    <th>مختصات</th>
+                                    <th>شناسه</th>
+                                    <th>شهر</th>
+                                    <th>استان</th>
+                                    <th>تعداد رستوران</th>
                                     <th>تاریخ ثبت</th>
                                 </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>کاربر 34</td>
-                                    <td>محله 1</td>
-                                    <td>111111,22222</td>
-                                    <td>11-7-2014</td>
-                                </tr>
-                                <tr>
-                                    <td>176</td>
-                                    <td>کاربر 90</td>
-                                    <td>محله 24</td>
-                                    <td>3333,8888</td>
-                                    <td>11-7-2014</td>
-                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Province.Name</td>
+                                        <td>-1</td>
+                                        <td>@item.CreateDate</td>
+                                        <td>
+                                            <input class="btn btn-warning" type="button" value="ویرایش"
+                                                   onclick="location.href='@Url.Action(editAction, controller, new { Id = item.Id })'" />
+
+                                            <input class="btn btn-danger" type="button" value="حذف"
+                                                   onclick="location.href='@Url.Action(deleteAction, controller,new{Id=item.Id})'" />
+                                        </td>
+                                    </tr>
+                                }
                             </table>
                         </div>
                         <!-- /.card-body -->

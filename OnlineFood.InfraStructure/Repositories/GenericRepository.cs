@@ -23,21 +23,21 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         }
 
         await _dbContext.Set<T>().AddAsync(entity);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync(CancellationToken.None);
         return true;
     }    
 
     public async Task<bool> Update(T entity)
     {
         _dbContext.Entry(entity).State = EntityState.Modified;
-        _dbContext.SaveChangesAsync();
+        _dbContext.SaveChangesAsync(CancellationToken.None);
         return true;
     }
 
     public async Task<bool> Delete(T entity)
     {
         _dbContext.Set<T>().Remove(entity);
-        _dbContext.SaveChangesAsync();
+        _dbContext.SaveChangesAsync(CancellationToken.None);
         return true;
     }
 }

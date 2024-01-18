@@ -1,13 +1,14 @@
-﻿@{
+﻿@using OnlineFood.WebHost.Controllers
+@{
     Layout = null;
 }
-@model OnlineFood.Application.Dtos.Users.LoginDto
+@model OnlineFood.Application.Dtos.Users.RegisterViewModel
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>صفحه ورود</title>
+    <title>ثبت نام</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,8 +34,8 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href=" ../ ../index2.html">
-                <b>ورود به سایت</b>
+            <a href="#">
+                <b>ثبت نام</b>
             </a>
         </div>
         <!-- /.login-logo -->
@@ -44,27 +45,38 @@
                 <div class="alert alert-danger">@ViewBag.Error</div>
             }
             <div class="card-body login-card-body">
-                <p class="login-box-msg">فرم زیر را تکمیل کنید و ورود بزنید</p>
+                <p class="login-box-msg">فرم زیر را تکمیل کنید و روی دکمه ثبت نام کلیک کنید</p>
 
-                <form method="post" asp-action="Index" asp-controller="Login">
+                <form method="post" asp-action="@nameof(UserController.New)" asp-controller="@nameof(UserController).Replace("Controller","")">
                     <div class="input-group mb-3">
-                        <input type="text" asp-for="Username" class="form-control" placeholder="نام کاربری">
+                        <input type="text" asp-for="UserName" class="form-control" placeholder="نام کاربری">
+                        <div class="input-group-append">
+                            <span class="fa fa-user input-group-text"></span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" asp-for="Email" class="form-control" placeholder="ایمیل">
                         <div class="input-group-append">
                             <span class="fa fa-envelope input-group-text"></span>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" asp-for="password" class="form-control" placeholder="رمز عبور">
+                        <input type="password" asp-for="Password" class="form-control" placeholder="رمز عبور">
                         <div class="input-group-append">
                             <span class="fa fa-lock input-group-text"></span>
                         </div>
                     </div>
-
+                    <div class="input-group mb-3">
+                        <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="تکرار رمز عبور">
+                        <div class="input-group-append">
+                            <span class="fa fa-lock input-group-text"></span>
+                        </div>
+                    </div>
                     <div class="row">
 
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">ورود</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">ثبت نام</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -78,7 +90,10 @@
                 </p>
 
                 <p class="mb-1">
-                    <a asp-controller="Register" asp-action="Index">ثبت نام</a>
+                    <a asp-controller="@nameof(UserController).Replace("Controller", "")"
+                       asp-action="@nameof(UserController.Login)">
+                        صفحه ورود
+                    </a>
                 </p>
 
                 <p class="mb-1">

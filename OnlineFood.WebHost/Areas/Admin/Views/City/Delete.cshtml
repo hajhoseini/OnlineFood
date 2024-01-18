@@ -1,4 +1,4 @@
-@using OnlineFood.Application.Dtos.Cities
+﻿@using OnlineFood.Application.Dtos.Cities
 @using OnlineFood.WebHost.Areas.Admin.Controllers
 @model CityDTO
 @{
@@ -12,12 +12,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>شهر</h1>
+                    <h1>حذف شهر</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">شهر</li>
+                        <li class="breadcrumb-item active">حذف شهر</li>
                     </ol>
                 </div>
             </div>
@@ -32,29 +32,23 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">شهر</h3>
+                            <h3 class="card-title">حذف شهر</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" asp-controller="City" asp-action="New" method="post">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label asp-for="Province.Name"></label>
-                                    <input type="text" class="form-control" name="ProvinceName" value="@Model.Province.Name" disabled>
-                                    @Html.HiddenFor(x => x.ProvinceId)
-                                </div>
-                            </div>
+                        <form role="form" asp-controller="City" asp-action="Delete" method="post">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label asp-for="Name"></label>
-                                    <input type="text" class="form-control" name="Name">
+                                    <input type="text" class="form-control" name="Title" value="@Model.Name" disabled>
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">ثبت</button>
-                                <input class="btn btn-default"type="button" value="لغو و بازگشت"
+                                <button type="submit" class="btn btn-danger">حذف</button>
+                                @* onclick="location.href='@Url.Action("Index", "RestaurantCategory")'" /> *@
+                                <input class="btn btn-default" type="button" value="لغو و بازگشت"
                                        onclick="location.href='@Url.Action(indexAction, controller)'" />
                             </div>
                         </form>

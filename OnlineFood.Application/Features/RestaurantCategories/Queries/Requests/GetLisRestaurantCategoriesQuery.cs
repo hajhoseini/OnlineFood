@@ -4,6 +4,6 @@ using OnlineFood.Domain.Entities.RestaurantCategories;
  
 namespace OnlineFood.Application.Features.RestaurantCategories.Queries.Requests;
 
-public class ListRestaurantCategoriesQuery : IRequest<List<RestaurantCategoryDTO>>
+public class GetListRestaurantCategoriesQuery : IRequest<List<RestaurantCategoryDTO>>
 {
 }

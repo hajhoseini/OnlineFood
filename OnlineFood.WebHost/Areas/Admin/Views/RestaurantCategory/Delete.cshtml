@@ -1,9 +1,8 @@
-@using OnlineFood.Application.Dtos.Cities
-@using OnlineFood.WebHost.Areas.Admin.Controllers
-@model CityDTO
+﻿@using OnlineFood.WebHost.Areas.Admin.Controllers
+@model OnlineFood.Application.Dtos.RestaurantCategory.RestaurantCategoryDTO
 @{
-    var controller = nameof(CityController).Replace("Controller", "");
-    var indexAction = nameof(CityController.Index);
+    var controller = nameof(RestaurantCategoryController).Replace("Controller", "");
+    var indexAction = nameof(RestaurantCategoryController.Index);
 }
 
 <div class="content-wrapper" style="min-height: 265.6px;">
@@ -12,12 +11,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>شهر</h1>
+                    <h1>حذف دسته بندی فروشنده</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">شهر</li>
+                        <li class="breadcrumb-item active">حذف دسته بندی فروشنده</li>
                     </ol>
                 </div>
             </div>
@@ -32,29 +31,26 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">شهر</h3>
+                            <h3 class="card-title">حذف دسته بندی فروشنده </h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" asp-controller="City" asp-action="New" method="post">
+                        <form role="form" asp-controller="RestaurantCategory" asp-action="Delete" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label asp-for="Province.Name"></label>
-                                    <input type="text" class="form-control" name="ProvinceName" value="@Model.Province.Name" disabled>
-                                    @Html.HiddenFor(x => x.ProvinceId)
+                                    <label asp-for="Title"></label>
+                                    <input type="text" class="form-control" name="Title" value="@Model.Title" disabled>
                                 </div>
-                            </div>
-                            <div class="card-body">
                                 <div class="form-group">
-                                    <label asp-for="Name"></label>
-                                    <input type="text" class="form-control" name="Name">
+                                    <label asp-for="Description"></label>
+                                    <textarea asp-for="Description" class="form-control" rows="3" name="Description" disabled>@Model.Description</textarea>
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">ثبت</button>
-                                <input class="btn btn-default"type="button" value="لغو و بازگشت"
+                                <button type="submit" class="btn btn-danger">حذف</button>
+                                <input class="btn btn-default" type="button" value="لغو و بازگشت"
                                        onclick="location.href='@Url.Action(indexAction, controller)'" />
                             </div>
                         </form>

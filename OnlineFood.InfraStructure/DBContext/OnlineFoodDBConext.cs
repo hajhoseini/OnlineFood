@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineFood.Domain.Entities.AccountTransactions;
 using OnlineFood.Domain.Entities.Addresses;
+using OnlineFood.Domain.Entities.Base;
 using OnlineFood.Domain.Entities.Cities;
 using OnlineFood.Domain.Entities.Comments;
 using OnlineFood.Domain.Entities.Customers;
@@ -24,10 +25,44 @@ using OnlineFood.Domain.Entities.WorkTimes;
 
 namespace OnlineFood.InfraStructure.DBContext;
 
-public class OnlineFoodDBConext : IdentityDbContext<User,Role,string>
+public class OnlineFoodDBConext : IdentityDbContext<User, Role, string>
 {
     public OnlineFoodDBConext(DbContextOptions<OnlineFoodDBConext> options) : base(options)
     {
+    }
+
+    public override int SaveChanges()
+    {
+        var entries = ChangeTracker
+            .Entries()
+            .Where(e => e.Entity is BaseEntity && (
+                    e.State == EntityState.Added
+                    || e.State == EntityState.Modified));
+
+        foreach (var entityEntry in entries)
+        {
+            if (entityEntry.State == EntityState.Added)
+                ((BaseEntity)entityEntry.Entity).CreateDate = DateTime.Now;
+        }
+
+        return base.SaveChanges();
+    }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+    {
+        var entries = ChangeTracker
+            .Entries()
+            .Where(e => e.Entity is BaseEntity && (
+                    e.State == EntityState.Added
+                    || e.State == EntityState.Modified));
+
+        foreach (var entityEntry in entries)
+        {
+            if (entityEntry.State == EntityState.Added)
+                ((BaseEntity)entityEntry.Entity).CreateDate = DateTime.Now;
+        }
+
+        return await base.SaveChangesAsync();
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -36,6 +71,12 @@ public class OnlineFoodDBConext : IdentityDbContext<User,Role,string>
         builder.Entity<User>()
             .Property(e => e.Id)
             .ValueGeneratedOnAdd();
+
+        builder.Entity<Province>()
+        .HasMany(e => e.Cities)
+        .WithOne(e => e.Province)
+        .HasForeignKey(e => e.ProvinceId)
+        .IsRequired();
     }
 
     public DbSet<User> Users { get; set; }
