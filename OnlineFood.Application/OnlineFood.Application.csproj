@@ -19,6 +19,10 @@
     <ProjectReference Include="..\OnlineFood.Domain\OnlineFood.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Menu\" />
+  </ItemGroup>
+
 
 
 </Project>
