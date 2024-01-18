@@ -13,8 +13,8 @@ public class UpdateRestaurantCategoryCommandHandler : IRequestHandler<UpdateRest
 
 	public UpdateRestaurantCategoryCommandHandler(IRestaurantCategoryRepository RestaurantCategoryRepository, IMapper mapper)
 	{
-		this._RestaurantCategoryRepository = RestaurantCategoryRepository;
-		this._mapper = mapper;
+		_RestaurantCategoryRepository = RestaurantCategoryRepository;
+		_mapper = mapper;
 	}
 
 	public Task<bool> Handle(UpdateRestaurantCategoryCommand request, CancellationToken cancellationToken)

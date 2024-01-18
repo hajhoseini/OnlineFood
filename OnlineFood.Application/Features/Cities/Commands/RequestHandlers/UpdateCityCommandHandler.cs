@@ -13,8 +13,8 @@ public class UpdateCityCommandHandler : IRequestHandler<UpdateCityCommand, bool>
 
 	public UpdateCityCommandHandler(ICityRepository CityRepository, IMapper mapper)
 	{
-		this._CityRepository = CityRepository;
-		this._mapper = mapper;
+		_CityRepository = CityRepository;
+		_mapper = mapper;
 	}
 
 	public Task<bool> Handle(UpdateCityCommand request, CancellationToken cancellationToken)

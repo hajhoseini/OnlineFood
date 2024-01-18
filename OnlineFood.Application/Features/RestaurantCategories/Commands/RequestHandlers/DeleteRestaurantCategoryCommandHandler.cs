@@ -11,7 +11,7 @@ public class DeleteRestaurantCategoryCommandHandler : IRequestHandler<DeleteRest
 
 	public DeleteRestaurantCategoryCommandHandler(IRestaurantCategoryRepository RestaurantCategoryRepository)
 	{
-		this._RestaurantCategoryRepository = RestaurantCategoryRepository;
+		_RestaurantCategoryRepository = RestaurantCategoryRepository;
 	}
 
 	public Task<bool> Handle(DeleteRestaurantCategoryCommand request, CancellationToken cancellationToken)

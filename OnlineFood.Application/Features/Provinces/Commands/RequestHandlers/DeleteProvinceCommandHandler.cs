@@ -11,7 +11,7 @@ public class DeleteProvinceCommandHandler : IRequestHandler<DeleteProvinceComman
 
 	public DeleteProvinceCommandHandler(IProvinceRepository ProvinceRepository)
 	{
-		this._ProvinceRepository = ProvinceRepository;
+		_ProvinceRepository = ProvinceRepository;
 	}
 
 	public Task<bool> Handle(DeleteProvinceCommand request, CancellationToken cancellationToken)

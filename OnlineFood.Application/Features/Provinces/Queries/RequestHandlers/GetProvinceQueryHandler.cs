@@ -13,14 +13,14 @@ public class GetProvinceQueryHandler : IRequestHandler<GetProvinceQuery, Provinc
 
 	public GetProvinceQueryHandler(IProvinceReader ProvinceReader, IMapper mapper)
 	{
-		this._ProvinceReader = ProvinceReader;
+		_ProvinceReader = ProvinceReader;
 		_mapper = mapper;
 	}
 
 
 	public async Task<ProvinceDTO> Handle(GetProvinceQuery request, CancellationToken cancellationToken)
 	{
-		var queryResult = await _ProvinceReader.GetById(request.Id,"City");
+		var queryResult = await _ProvinceReader.GetById(request.Id);
 		ProvinceDTO result=_mapper.Map<ProvinceDTO>(queryResult);
 		return result;
 	}
