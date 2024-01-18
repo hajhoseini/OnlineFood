@@ -19,8 +19,6 @@ namespace OnlineFood.WebHost.Middlewares
 			var url = httpContext.Request.GetDisplayUrl().ToLower();
 			if (url == "https://localhost:7194/login" || url == "https://localhost:7194/restaurant/login")
 			{
-                _mediator = mediator;
-
                 string browser = httpContext.Request.Headers["User-Agent"];
                 string ip = httpContext.Connection.RemoteIpAddress.ToString();
 
