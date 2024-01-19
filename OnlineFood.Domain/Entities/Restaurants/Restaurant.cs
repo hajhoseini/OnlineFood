@@ -26,5 +26,5 @@ public class Restaurant : BaseEntity
     public int Discount { get; set; }
     public bool SendToOutOfArea { get; set; }
     //public List<PayModelEnum> PayModels { get; set; }
-    public int AddressId { get; set; }
+    // public int AddressId { get; set; }
 }

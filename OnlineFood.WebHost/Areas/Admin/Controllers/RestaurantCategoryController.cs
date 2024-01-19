@@ -34,6 +34,7 @@ public class RestaurantCategoryController : Controller
         //dto.Id = 1;
         dto.CreateDate = DateTime.Now;
         var result = await _mediator.Send(dto);
+        ViewBag.Message = "ok";
         return Ok(result);
         //return RedirectToAction("Index", "RestaurantCategory");
     }

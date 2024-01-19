@@ -13,5 +13,5 @@ public class Customer : BaseEntity
     public string PhoneNumber { get; set; }
     public GenderEnum Gender { get; set; }
     public DateTime BirthDate { get; set; }
-    public int AddressId { get; set; }
+    // public int AddressId { get; set; }
 }

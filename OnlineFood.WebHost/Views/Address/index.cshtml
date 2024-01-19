@@ -1,0 +1,75 @@
+@model OnlineFood.Application.Dtos.Address.CreateAdderss
+@* @section Styls{ *@
+@*       <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> *@
+@* } *@
+
+<div class="card card-warning col-md-9">
+    <div class="card-header">
+        <h3 class="card-title">اطلاعات من</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+ <div id="mapid" style="height: 400px;"></div>
+        <form asp-controller="Address" asp-action="create"  method="post">
+
+ 
+ 
+                 @* <label> ادرس</label> *@
+                      <input   type="text" name="address" class="form-control" placeholder="ادرس">
+     
+ 
+                 @* <label>ساختمان</label> *@
+                 <input   name="sakhteman" type="text" class="form-control" placeholder="حسینی">
+ 
+ 
+                 @* <label>پلاک</label> *@
+                 <input   type="text" name="pelak" class="form-control" placeholder="b.hoseini@gmail.com" >
+ 
+    
+                 
+                 <input  name="loc" type="text" class="form-control" id="curso"   placeholder=" xxxx"  >
+  
+             <input type="submit"/>
+
+        </form>
+    </div>
+    <div class="card-footer">
+        
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<!-- Button trigger modal -->
+<script >
+  document.addEventListener("DOMContentLoaded", function () {
+      var defaultLocation = [35.6895, 51.3890];
+      var mymap = L.map('mapid').setView(defaultLocation, 13);
+  
+      var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+      }).addTo(mymap);
+  
+      var defaultMarker = L.marker(defaultLocation).addTo(mymap)
+          .bindPopup('Default Location').openPopup();
+  
+      mymap.on('click', function (e) {
+          var clickedLatLng = e.latlng;
+  
+          // حذف نشانگر و popup مربوط به default location
+          mymap.removeLayer(defaultMarker);
+  
+          // افزودن یک نشانگر جدید به موقعیت کلیک شده
+          var newMarker = L.marker(clickedLatLng).addTo(mymap)
+              .bindPopup('Clicked Location').openPopup();
+  
+          // به نشانگر جدید انتقال دهید تا بتوانید آن را در مراحل بعدی مدیریت کنید
+          defaultMarker = newMarker;
+           document.getElementById("curso").value =mymap.getCenter()
+      });
+  
+ 
+         
+ 
+  });
+ 
+ </script>

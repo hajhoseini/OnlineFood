@@ -19,6 +19,11 @@
     <ProjectReference Include="..\OnlineFood.Domain\OnlineFood.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\UserAdderss\Query\RequestHandler\" />
+    <Folder Include="Features\UserAdderss\Query\Request\" />
+  </ItemGroup>
+
 
 
 </Project>

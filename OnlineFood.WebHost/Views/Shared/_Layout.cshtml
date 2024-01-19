@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="/AdminTemplate/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     @*<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">*@
-
+ 
     <!-- bootstrap rtl -->
     <link rel="stylesheet" href="/AdminTemplate/dist/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="/AdminTemplate/dist/css/custom-style-customer.css">
-
     @RenderSection("Styls", false)
 
 </head>
@@ -54,16 +54,13 @@
             <ul class="navbar-nav mr-auto">
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
+                    <a class="nav-link" data-toggle="dropdown" >
                         <i class="fa fa-sign-out"></i>
                     </a>
 
                 </li>
                 <li class="nav-item">
-                    <span class="nav-link">@User.Identity.Name</span>
-                    @* <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                    <i class="fa fa-th-large"></i>
-                    </a> *@
+           @if(@User.Identity.Name!=null){<span >User.Identity.Name</span>}
                 </li>
             </ul>
         </nav>
@@ -105,13 +102,13 @@
                                     <div class="card-body p-0">
                                         <ul class="nav nav-pills flex-column">
                                             <li class="nav-item active">
-                                                <a href="#" class="nav-link">
+                                                <a  class="nav-link">
                                                     <i class="fa fa-file-text-o"></i> پیام ها
                                                     <span class="badge bg-primary float-left">12</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link">
+                                                <a  class="nav-link">
                                                     <i class="fa fa-file-text-o"></i> کیف پول
                                                     <span class="badge bg-warning float-left">89,000 تومان</span>
                                                 </a>
@@ -122,17 +119,17 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link">
+                                                <a  class="nav-link" asp-action="index" asp-controller="Address">
                                                     <i class="fa fa-file-text-o"></i> آدرس ها
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link">
+                                                <a  class="nav-link">
                                                     <i class="fa fa-file-text-o"></i> علاقه مندی ها
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="#" class="nav-link">
+                                                <a  class="nav-link">
                                                     <i class="fa fa-file-text-o"></i> تغییر رمز
                                                 </a>
                                             </li>
@@ -280,6 +277,7 @@
 
     <!-- PAGE SCRIPTS -->
     <script src="/AdminTemplate/dist/js/pages/dashboard2.js"></script>
+    <script src="~/js/leaflet.js"></script>
     @RenderSection("scripts", false)
 </body>
 </html>

@@ -61,4 +61,5 @@ public class OnlineFoodDBConext : IdentityDbContext<User,Role,string>
     public DbSet<WorkTime> WorkTime { get; set; }
 
     public DbSet<SiteViewLog> SiteViewLog { get; set; }
+    public DbSet<UsersAddresses> UsersAddresses { get; set; }
 }

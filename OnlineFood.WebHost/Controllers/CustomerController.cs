@@ -56,4 +56,9 @@ public class CustomerController : /*ControllerBase*/Controller
 		var result = await mediator.Send(command);
 		return Ok(new { Data = result });
 	}
+
+	// public async Task<IActionResult> AddAddress(string customer)
+	// {
+	// 	return Microsoft.EntityFrameworkCore.Metadata.Internal.View
+	// }
 }

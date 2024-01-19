@@ -79,8 +79,10 @@ using OnlineFood.InfraStructure.Repositories.WorkTimeReaderRe;
 using OnlineFood.InfraStructure.Repositories.AccountTransactions;
 using OnlineFood.Domain.IReaders.SiteViewLogs;
 using OnlineFood.Domain.IRepositories.SiteViewLogs;
+using OnlineFood.Domain.IRepositories.UserAdderss;
 using OnlineFood.InfraStructure.Readers.SiteViewLogs;
 using OnlineFood.InfraStructure.Repositories.SiteViewLogs;
+using OnlineFood.InfraStructure.Repositories.UserAdderss;
 
 namespace OnlineFood.InfraStructure;
 
@@ -104,6 +106,7 @@ public static class DIContainer
         service.AddScoped<IProvinceRepository, ProvinceRepository>();
         service.AddScoped<IMenuCategoryRepository, MenuCategoryRepository>();
         service.AddScoped<IRestaurantCategoryRepository, RestaurantCategoryRepository>();
+        service.AddScoped<IUserAdderssRepository, UserAdderssRepository>();
 
         service.AddScoped(typeof(IGenericReader<>), typeof(GenericReader<>));
         service.AddScoped<IUserReader, UserReader>();
