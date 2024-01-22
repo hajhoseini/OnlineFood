@@ -9,5 +9,5 @@ public class Province : BaseEntity
     [Required]
     public string Name { get; set; }
 
-    public ICollection<City> Cities { get; } = new List<City>();
+    public ICollection<City> City { get; } = new List<City>();
 }

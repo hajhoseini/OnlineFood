@@ -73,7 +73,7 @@ public class OnlineFoodDBConext : IdentityDbContext<User, Role, string>
             .ValueGeneratedOnAdd();
 
         builder.Entity<Province>()
-        .HasMany(e => e.Cities)
+        .HasMany(e => e.City)
         .WithOne(e => e.Province)
         .HasForeignKey(e => e.ProvinceId)
         .IsRequired();
