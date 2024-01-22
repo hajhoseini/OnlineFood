@@ -16,5 +16,5 @@ public class ProvinceDTO
     [DisplayName("نام استان")]
     public string Name { get; set; }
 
-    public List<CityDTO> Cities { get; set; }
+    public List<CityDTO> City { get; set; }
 }

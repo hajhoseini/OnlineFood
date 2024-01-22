@@ -20,7 +20,7 @@ public class GetListProvincesQueryHandler : IRequestHandler<GetListProvincesQuer
 
 	public async Task<List<ProvinceDTO>> Handle(GetListProvincesQuery request, CancellationToken cancellationToken)
 	{
-		var all = await _ProvinceReader.GetList(null);
+		var all = await _ProvinceReader.GetList(null,"City");
 		var result = new List<ProvinceDTO>();
 		foreach (var item in all)
 		{
