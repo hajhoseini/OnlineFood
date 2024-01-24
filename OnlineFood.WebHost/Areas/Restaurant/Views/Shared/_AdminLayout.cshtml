@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using OnlineFood.WebHost.Controllers
+
+<!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
     <meta charset="utf-8">
@@ -150,7 +152,54 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Logout">خروج</a>
+            @* <a class="nav-link" href="/Logout">خروج</a> *@
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-item nav-link " data-toggle="dropdown"
+                               id="userDropdown" href="#">
+                                <span class="nav-link dropdown-toggle">@User.Identity.Name</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    پنل کاربر
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    تنظیمات حساب کاربری
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-action="@nameof(UserController.ChangePassword)"
+                                    asp-area="user" asp-controller="@nameof(UserController).Replace("Controller", "")">
+                                    تغییر کلمه‌ی عبور
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-action="@nameof(UserController.Logout)"
+                                   asp-area="user" asp-controller="@nameof(UserController).Replace("Controller", "")">
+                                    خروج
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    }
+                    else
+                    {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="user"
+                           asp-controller="@nameof(UserController).Replace("Controller", "")"
+                           asp-action="@nameof(UserController.Login)">
+                            ورود
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="user"
+                           asp-controller="@nameof(UserController).Replace("Controller", "")"
+                           asp-action="@nameof(UserController.New)">
+                            ثبت نام
+                        </a>
+                    </li>
+                    }
             @* <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
                         <i class="fa fa-th-large"></i>
                     </a> *@

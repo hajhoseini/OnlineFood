@@ -162,12 +162,12 @@
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" asp-action="@nameof(UserController.ChangePassword)"
-                                   asp-controller="@nameof(UserController).Replace("Controller", "")">
+                                   asp-area="user" asp-controller="@nameof(UserController).Replace("Controller", "")">
                                     تغییر کلمه‌ی عبور
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" asp-action="@nameof(UserController.Logout)"
-                                   asp-controller="@nameof(UserController).Replace("Controller", "")">
+                                   asp-area="user" asp-controller="@nameof(UserController).Replace("Controller", "")">
                                     خروج
                                 </a>
                             </div>
@@ -177,14 +177,14 @@
                     else
                     {
                     <li class="nav-item">
-                        <a class="nav-link"
+                        <a class="nav-link" asp-area="user"
                            asp-controller="@nameof(UserController).Replace("Controller", "")"
                            asp-action="@nameof(UserController.Login)">
                             ورود
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
+                        <a class="nav-link" asp-area="user"
                            asp-controller="@nameof(UserController).Replace("Controller", "")"
                            asp-action="@nameof(UserController.New)">
                             ثبت نام
