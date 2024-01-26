@@ -24,7 +24,7 @@ builder.Services.ApplicationServiceCollections();
 //});
 builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("MSSQLLocalDB"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 
