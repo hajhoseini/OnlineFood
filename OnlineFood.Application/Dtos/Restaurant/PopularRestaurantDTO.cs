@@ -11,7 +11,7 @@ namespace OnlineFood.Application.Dtos.Restaurant
     {
         [DisplayName("نام رستوران")]
         public string Name { get; set; }
-        [DisplayName("رتبه محبوبیت")]
+        [DisplayName("رتبه ")]
         public int PopularityRank { get; set; }
     }
 }
