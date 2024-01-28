@@ -28,6 +28,10 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\restaurant\" />
+  </ItemGroup>
+
 
 
 

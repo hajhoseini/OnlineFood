@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineFood.InfraStructure.DBContext;
 
@@ -11,9 +12,11 @@ using OnlineFood.InfraStructure.DBContext;
 namespace OnlineFood.InfraStructure.Migrations
 {
     [DbContext(typeof(OnlineFoodDBConext))]
-    partial class OnlineFoodDBConextModelSnapshot : ModelSnapshot
+    [Migration("20240128171922_restaurant_change")]
+    partial class restaurant_change
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -604,6 +607,7 @@ namespace OnlineFood.InfraStructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Banner")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
@@ -659,9 +663,6 @@ namespace OnlineFood.InfraStructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfBranches")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PayModels")
                         .HasColumnType("int");
 
                     b.Property<int>("Score")
