@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using OnlineFood.Application.Dtos.Users;
+using OnlineFood.Application.DTOs.Users;
 using OnlineFood.Domain.Entities.Users;
 
 namespace OnlineFood.Application.Services.Users.Commands;
@@ -15,7 +15,7 @@ public class UserCommandService : IUserCommandService
         _signInManager = SignInManager;
     }
 
-    public async Task<bool> Login(LoginDto dto)
+    public async Task<bool> Login(LoginDTO dto)
     {
         var result = await _signInManager.PasswordSignInAsync(dto.Username,
                                                             dto.password,

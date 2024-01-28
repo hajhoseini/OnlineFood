@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Message;
+using OnlineFood.Application.DTOs.Message;
 
 namespace OnlineFood.WebHost.Areas.Admin.Controllers;
 

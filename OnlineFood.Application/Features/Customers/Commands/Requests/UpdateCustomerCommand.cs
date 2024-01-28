@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using OnlineFood.Application.Dtos.Customers;
+using OnlineFood.Application.DTOs.Customers;
 using OnlineFood.Common;
 
 namespace OnlineFood.Application.Features.Customers.Commands.Requests;
 
-public class UpdateCustomerCommand : IRequest<ResultDto>
+public class UpdateCustomerCommand : IRequest<ResultDTO>
 {
-    public CustomerDto customer { get; set; }    
+    public CustomerDTO customer { get; set; }    
 }

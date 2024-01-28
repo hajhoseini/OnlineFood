@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Cities;
+using OnlineFood.Application.DTOs.Cities;
 using OnlineFood.Application.Features.Cities.Commands.Requests;
 using OnlineFood.Application.Features.Cities.Queries.Requests;
 using OnlineFood.Application.Features.Provinces.Queries.Requests;

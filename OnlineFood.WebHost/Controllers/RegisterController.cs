@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Customers;
+using OnlineFood.Application.DTOs.Customers;
 using OnlineFood.Application.Features.Customers.Commands.Requests;
 using OnlineFood.Common;
 
@@ -21,9 +21,9 @@ namespace OnlineFood.WebHost.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(RegisterDto dto)
+        public async Task<IActionResult> Create(RegisterDTO dto)
         {
-            ResultDto result = await _mediator.Send(new RegisterCommand() { register = dto });
+            ResultDTO result = await _mediator.Send(new RegisterCommand() { register = dto });
             if(!result.IsSuccess)
             {
                 ViewBag.Error = result.Message;

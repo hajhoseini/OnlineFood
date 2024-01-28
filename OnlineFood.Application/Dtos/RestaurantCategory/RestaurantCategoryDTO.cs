@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace OnlineFood.Application.Dtos.RestaurantCategory;
+namespace OnlineFood.Application.DTOs.RestaurantCategory;
 
 public class RestaurantCategoryDTO
 {

@@ -1,6 +1,6 @@
-﻿namespace OnlineFood.Application.Dtos.Favorites;
+﻿namespace OnlineFood.Application.DTOs.Favorites;
 
-public class FavoriteDto
+public class FavoriteDTO
 {
     public int Id { get; set; }
     public int CustomerId { get; set; }

@@ -1,9 +1,9 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using OnlineFood.Application.Dtos.Cities;
+using OnlineFood.Application.DTOs.Cities;
 
-namespace OnlineFood.Application.Dtos.Province;
+namespace OnlineFood.Application.DTOs.Province;
 
 public class ProvinceDTO
 {

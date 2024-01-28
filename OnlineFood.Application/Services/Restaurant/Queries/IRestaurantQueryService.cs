@@ -1,4 +1,4 @@
-﻿using OnlineFood.Application.Dtos.Restaurant;
+﻿using OnlineFood.Application.DTOs.Restaurant;
 
 namespace OnlineFood.Application.Services.Restaurant.Queries;
 

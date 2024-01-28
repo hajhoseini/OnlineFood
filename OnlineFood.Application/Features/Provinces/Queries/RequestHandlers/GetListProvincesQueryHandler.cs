@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using OnlineFood.Application.Features.Provinces.Queries.Requests;
-using OnlineFood.Application.Dtos.Province;
+using OnlineFood.Application.DTOs.Province;
 using OnlineFood.Domain.IReaders.Provinces;
 using AutoMapper;
 

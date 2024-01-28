@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Customers;
+using OnlineFood.Application.DTOs.Customers;
 using OnlineFood.Application.Features.Customers.Commands.Requests;
 using OnlineFood.Application.Features.Customers.Queries.Requests;
 
@@ -24,7 +24,7 @@ public class CustomerController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Edit(int id, CustomerDto dto)
+    public async Task<IActionResult> Edit(int id, CustomerDTO dto)
     {
         UpdateCustomerCommand command = new UpdateCustomerCommand { customer = dto };
         var result = await mediator.Send(command);

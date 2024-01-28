@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using OnlineFood.Application.Dtos.RestaurantCategory;
+using OnlineFood.Application.DTOs.RestaurantCategory;
 using OnlineFood.Application.Features.RestaurantCategories.Queries.Requests;
 using OnlineFood.Domain.IReaders.RestaurantCategories;
 
