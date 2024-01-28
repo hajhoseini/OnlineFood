@@ -5,18 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace OnlineFood.Application.Features.Restaurants.Commands.Requests
 {
     public class CreateRestaurantCommand:IRequest<bool>
     {
-        public int Id { get; set; }
-        public DateTime CreateDate { get; set; }
-        public int UserId { get; set; }
         public string MobileNumber { get; set; }
         public string Name { get; set; }
+        public string password { get; set; }
         public int CategoryId { get; set; }
-        public string Banner { get; set; }
+        public string? Banner { get; set; }
         public string ManagerFullName { get; set; }
         public string ManagerPhoneNumber { get; set; }
         public int NumberOfBranches { get; set; }
@@ -32,7 +32,7 @@ namespace OnlineFood.Application.Features.Restaurants.Commands.Requests
         public int AverangeDeliveryTime { get; set; }
         public int Discount { get; set; }
         public bool SendToOutOfArea { get; set; }
-        public List<PayModelEnum> PayModels { get; set; }
+        public PayModelEnum PayModels { get; set; }
         public int AddressId { get; set; }
     }
 }

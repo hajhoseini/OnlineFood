@@ -1,6 +1,8 @@
 ﻿@using OnlineFood.Common.Enums;
-@model OnlineFood.Application.Dtos.Restaurant.RegisterRestaurantDTO
-
+@model OnlineFood.Application.Features.Restaurants.Commands.Requests.CreateRestaurantCommand;
+@{
+    Layout = "_LayoutHeaderOnly";
+}
 <div class="col-md-12">
     <!-- general form elements -->
     <div class="card card-primary">
@@ -9,11 +11,16 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form" asp-controller="Restaurant" asp-action="Register" method="post">
+        @Html.ValidationSummary(false)
+        <form role="form" asp-controller="Restaurant" asp-action="Register" method="post" enctype="multipart/form-data">
             <div class="card-body">
                 <div class="form-group">
                     <label asp-for="Name"></label>
                     <input type="text" class="form-control" name="name">
+                </div>
+                <div class="form-group">
+                    <label asp-for="password"></label>
+                    <input type="password" class="form-control" asp-for="password" />
                 </div>
                 <div class="form-group">
                     <label asp-for="CategoryId"></label>
@@ -32,23 +39,23 @@
                 <div class="form-group">
                     <label asp-for="Banner"></label>
                     <div class="input-group">
-                        <input type="file" class="custom-file-input" name="banner">
+                        <input type="file" class="" name="banner">
                     </div>
                 </div>
                 <div class="form-group">
                     <label asp-for="ManagerFullName"></label>
-                    <input type="text" class="form-control" name="managerName">
+                    <input type="text" class="form-control" asp-for="ManagerFullName">
                 </div>
                 <div class="form-group">
                     <label asp-for="ManagerPhoneNumber"></label>
-                    <input type="text" class="form-control" name="managerMobile">
+                    <input type="text" class="form-control" asp-for="ManagerPhoneNumber">
                 </div>
                 <div class="form-group">
                     <label asp-for="CreditAccountNumber"></label>
-                    <input type="text" class="form-control" name="creditCard">
+                    <input type="text" class="form-control" asp-for="CreditAccountNumber">
                 </div>
                 <div class="form-group">
-                    <label asp-for="ProvinceId"></label>
+                    <label>استان</label>
                     <select class="form-control" name="province">
                         <option selected disabled>انتخاب</option>
                         <option>گزینه ۲</option>
@@ -59,7 +66,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="CityId"></label>
-                    <select class="form-control" name="city">
+                    <select class="form-control" asp-for="CityId">
                         <option selected disabled>انتخاب</option>
                         <option>گزینه ۲</option>
                         <option>گزینه ۳</option>
@@ -75,16 +82,16 @@
                     <label asp-for="PayModels">روش پرداخت</label><span>:</span>
                     @foreach(var c in System.Enum.GetValues<PayModelEnum>())
                     {
-                        <input class="form-check-input" type="radio" value="@c" name="pay">
-                        <label class="form-check-label">@c</label>
+                        <input class="" type="radio" value="@c" asp-for="PayModels">
+                        <label class="">@c</label>
                     }
                 </div>
                 <div class="form-group">
-                    <label asp-for="SendToOutOfArea"></label><span>:</span>
-                    <input class="form-check-input" type="radio" value="true" name="sendOutArea">
-                    <label class="form-check-label">دارد</label>
-                    <input class="form-check-input" type="radio" value="false" name="sendOutArea">
-                    <label class="form-check-label">ندارد</label>
+                    <label asp-for="SendToOutOfArea"></label><span> : </span>
+                    <input class="" type="radio" value="true" name="sendOutArea">
+                    <label class="">دارد</label>
+                    <input class="" type="radio" value="false" name="sendOutArea">
+                    <label class="">ندارد</label>
                 </div>
                 <div class="form-group">
                     <label asp-for="Description"></label>

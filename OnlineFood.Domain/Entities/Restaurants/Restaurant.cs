@@ -5,11 +5,11 @@ namespace OnlineFood.Domain.Entities.Resturants;
 
 public class Restaurant : BaseEntity
 {
-    public int UserId { get; set; }
     public string MobileNumber { get; set; }
     public string Name { get; set; }
+    public string password {  get; set; }
     public int CategoryId { get; set; }
-    public string Banner { get; set; }
+    public string? Banner { get; set; }
     public string ManagerFullName { get; set; }
     public string ManagerPhoneNumber { get; set; }
     public int NumberOfBranches { get; set; }
@@ -25,6 +25,6 @@ public class Restaurant : BaseEntity
     public int AverangeDeliveryTime { get; set; }
     public int Discount { get; set; }
     public bool SendToOutOfArea { get; set; }
-    //public List<PayModelEnum> PayModels { get; set; }
+    public PayModelEnum PayModels { get; set; }
     public int AddressId { get; set; }
 }
