@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using OnlineFood.Domain.Entities.Customers;
+using OnlineFood.Application.Dtos.Customers;
 
 namespace OnlineFood.Application.Features.Customers.Queries.Requests;
 
-public class GetCustomerQuery : IRequest<Customer>
+public class GetCustomerQuery : IRequest<CustomerDto>
 {
 	public int Id { get; set; }
 }

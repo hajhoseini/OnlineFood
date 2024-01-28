@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Register;
-using OnlineFood.Application.Features.Register.Commands.Requests;
+using OnlineFood.Application.Dtos.Customers;
+using OnlineFood.Application.Features.Customers.Commands.Requests;
 using OnlineFood.Common;
 
 namespace OnlineFood.WebHost.Controllers
