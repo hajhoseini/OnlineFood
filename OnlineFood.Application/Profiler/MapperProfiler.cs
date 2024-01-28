@@ -37,6 +37,7 @@ using OnlineFood.Application.Features.SiteViewLogs.Commands.Requests;
 using OnlineFood.Application.Dtos.RestaurantCategory;
 using OnlineFood.Application.Dtos.Province;
 using OnlineFood.Application.Dtos.Cities;
+using OnlineFood.Application.Dtos.Customers;
 
 namespace OnlineFood.Application.Profiler;
 
@@ -57,6 +58,7 @@ public class MapperProfiler : Profile
 
         CreateMap<Customer, CreateCustomerCommand>().ReverseMap();
         CreateMap<Customer, UpdateCustomerCommand>().ReverseMap();
+        CreateMap<Customer, CustomerDto>().ReverseMap();
 
         CreateMap<Favorite, CreateFavoriteCommand>().ReverseMap();
         CreateMap<Favorite, UpdateFavoriteCommand>().ReverseMap();

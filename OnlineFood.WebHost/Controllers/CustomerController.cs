@@ -2,58 +2,31 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineFood.Application.Features.Customers.Commands.Requests;
 using OnlineFood.Application.Features.Customers.Queries.Requests;
+using OnlineFood.Domain.Entities.Customers;
 
 namespace OnlineFood.WebHost.Controllers;
 
-[ApiController]
-[Route("[controller]")]
-public class CustomerController : /*ControllerBase*/Controller
+public class CustomerController : Controller
 {
-	private readonly IMediator mediator;
+    private readonly IMediator mediator;
 
-	public CustomerController(IMediator mediator)
-	{
-		this.mediator = mediator;
-	}
-
-	//[HttpGet]
-	//public async Task<IActionResult> GetListCustomers([FromBody] GetListCustomersQuery query)
-	//{
-	//	var result = await mediator.Send(query);
-	//	return Ok(new { Data = result });
-	//}
-
-    //[HttpGet("{id}")]
-    //public async Task<IActionResult> GetCustomerById(int id)
-    //{
-    //	GetCustomerQuery query = new GetCustomerQuery() { Id = id };
-    //	var result = await mediator.Send(query);
-    //	return Ok(new { Data = result });
-    //}
-    [HttpGet]
-    public async Task<IActionResult> GetCustomerById()
+    public CustomerController(IMediator mediator)
     {
-		return View("Index");
+        this.mediator = mediator;
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Edit(int id)
+    {
+        GetCustomerQuery query = new GetCustomerQuery() { Id = id };
+        var result = await mediator.Send(query);
+        return View(result);
     }
 
     [HttpPost]
-	public async Task<IActionResult> CreateCustomer([FromBody] CreateCustomerCommand command)
-	{
-		var result = await mediator.Send(command);
-		return Ok(new { Data = result });
-	}
-
-	[HttpPut]
-	public async Task<IActionResult> UpdateCustomer([FromBody] UpdateCustomerCommand command)
-	{
-		var result = await mediator.Send(command);
-		return Ok(new { Data = result });
-	}
-
-	[HttpDelete]
-	public async Task<IActionResult> DeleteCustomer([FromBody] DeleteCustomerCommand command)
-	{
-		var result = await mediator.Send(command);
-		return Ok(new { Data = result });
-	}
+    public async Task<IActionResult> Edit(int id, Customer command)
+    {
+        var result = await mediator.Send(command);
+        return Ok(new { Data = result });
+    }
 }

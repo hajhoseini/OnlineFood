@@ -1,21 +1,25 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using OnlineFood.Application.Dtos.Customers;
 using OnlineFood.Application.Features.Customers.Queries.Requests;
-using OnlineFood.Domain.Entities.Customers;
 using OnlineFood.Domain.IReaders.Customers;
 
 namespace OnlineFood.Application.Features.Customers.Queries.RequestHandlers;
 
-public class GetCustomerQueryHandler : IRequestHandler<GetCustomerQuery, Customer>
+public class GetCustomerQueryHandler : IRequestHandler<GetCustomerQuery, CustomerDto>
 {
-	private readonly ICustomerReader _CustomerReader;
+    private readonly IMapper _mapper;
+    private readonly ICustomerReader _customerReader;    
 
-	public GetCustomerQueryHandler(ICustomerReader CustomerReader)
+    public GetCustomerQueryHandler(IMapper mapper, ICustomerReader customerReader)
 	{
-		this._CustomerReader = CustomerReader;
+		this._mapper = mapper;
+        this._customerReader = customerReader;
 	}
 
-	public async Task<Customer> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
-	{
-		return await _CustomerReader.GetById(request.Id);
-	}
+	public async Task<CustomerDto> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
+	{        
+		var customerEntity = await _customerReader.GetById(request.Id);
+        return _mapper.Map<CustomerDto>(customerEntity);
+    }
 }
