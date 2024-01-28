@@ -63,7 +63,9 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResultDto
             UserId = Convert.ToInt32(userEntity.Id)
         };
 		var customerEntity = _mapper.Map<Customer>(customerCommand);
-		result = await _unitOfWork.GenericReposity<Customer>().Create(customerEntity);
+		customerEntity.FirstName = "";
+		customerEntity.LastName = "";
+        result = await _unitOfWork.GenericReposity<Customer>().Create(customerEntity);
 
 		resultDto = new ResultDto()
 		{
