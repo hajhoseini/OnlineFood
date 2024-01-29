@@ -1,4 +1,4 @@
-﻿namespace OnlineFood.Application.Dtos.Register;
+﻿namespace OnlineFood.Application.Dtos.Customers;
 
 public class RegisterDto
 {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using OnlineFood.Application.Dtos.Register;
+using OnlineFood.Application.Dtos.Customers;
 using OnlineFood.Common;
 
-namespace OnlineFood.Application.Features.Register.Commands.Requests;
+namespace OnlineFood.Application.Features.Customers.Commands.Requests;
 
 public class RegisterCommand : IRequest<ResultDto>
 {
