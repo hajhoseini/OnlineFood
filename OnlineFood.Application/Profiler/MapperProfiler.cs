@@ -1,6 +1,6 @@
 using AutoMapper;
-using OnlineFood.Application.Dtos.Message;
-using OnlineFood.Application.Dtos.Users;
+using OnlineFood.Application.DTOs.Message;
+using OnlineFood.Application.DTOs.Users;
 using OnlineFood.Application.Features.Addresses.Commands.Requests;
 using OnlineFood.Application.Features.Cities.Commands.Requests;
 using OnlineFood.Application.Features.Comments.Commands.Requests;
@@ -34,10 +34,10 @@ using OnlineFood.Domain.Entities.Wallets;
 using OnlineFood.Domain.IReaders.SiteViewLogs;
 using OnlineFood.Domain.Entities.SiteViewLogs;
 using OnlineFood.Application.Features.SiteViewLogs.Commands.Requests;
-using OnlineFood.Application.Dtos.RestaurantCategory;
-using OnlineFood.Application.Dtos.Province;
-using OnlineFood.Application.Dtos.Cities;
-using OnlineFood.Application.Dtos.Customers;
+using OnlineFood.Application.DTOs.RestaurantCategory;
+using OnlineFood.Application.DTOs.Province;
+using OnlineFood.Application.DTOs.Cities;
+using OnlineFood.Application.DTOs.Customers;
 
 namespace OnlineFood.Application.Profiler;
 
@@ -45,8 +45,8 @@ public class MapperProfiler : Profile
 {
     public MapperProfiler()
     {
-        //CreateMap<User, UserDto>().ReverseMap();
-        CreateMap<User, LoginDto>().ReverseMap();
+        //CreateMap<User, UserDTO>().ReverseMap();
+        CreateMap<User, LoginDTO>().ReverseMap();
         CreateMap<User, CreateUserCommand>().ReverseMap();
         CreateMap<User, UpdateUserCommand>().ReverseMap();
 
@@ -58,7 +58,7 @@ public class MapperProfiler : Profile
 
         CreateMap<Customer, CreateCustomerCommand>().ReverseMap();
         CreateMap<Customer, UpdateCustomerCommand>().ReverseMap();
-        CreateMap<Customer, CustomerDto>().ReverseMap();
+        CreateMap<Customer, CustomerDTO>().ReverseMap();
 
         CreateMap<Favorite, CreateFavoriteCommand>().ReverseMap();
         CreateMap<Favorite, UpdateFavoriteCommand>().ReverseMap();

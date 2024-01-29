@@ -1,6 +1,6 @@
-﻿namespace OnlineFood.Application.Dtos.Users;
+﻿namespace OnlineFood.Application.DTOs.Users;
 
-public class UserDto
+public class UserDTO
 {
     public int Id { get; set; }
     public string UserName { get; set; }

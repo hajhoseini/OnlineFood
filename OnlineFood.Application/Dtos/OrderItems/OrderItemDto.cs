@@ -1,6 +1,6 @@
-﻿namespace OnlineFood.Application.Dtos.OrderItems;
+﻿namespace OnlineFood.Application.DTOs.OrderItems;
 
-public class OrderItemDto
+public class OrderItemDTO
 {
     public int Id { get; set; }
     public int OrderId { get; set; }

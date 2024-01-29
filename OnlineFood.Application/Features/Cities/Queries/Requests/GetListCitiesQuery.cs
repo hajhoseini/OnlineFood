@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using OnlineFood.Application.Dtos.Cities;
+using OnlineFood.Application.DTOs.Cities;
 
 namespace OnlineFood.Application.Features.Cities.Queries.Requests;
 

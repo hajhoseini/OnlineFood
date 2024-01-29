@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace OnlineFood.Application.Dtos.Message;
+namespace OnlineFood.Application.DTOs.Message;
 
 public class MessageDTO
 {

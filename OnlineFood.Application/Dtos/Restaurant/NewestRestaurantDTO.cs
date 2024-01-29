@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace OnlineFood.Application.Dtos.Restaurant
+namespace OnlineFood.Application.DTOs.Restaurant;
+
+public class NewestRestaurantDTO
 {
-    public class NewestRestaurantDTO
-    {
-        [DisplayName("نام رستوران")]
-        public string Name { get; set; }
-        [DisplayName("تاریخ اضافه شدن رستوران ")]
-        public DateTime OpeningDate { get; set; }
-    }
+    [DisplayName("نام رستوران")]
+    public string Name { get; set; }
+
+    [DisplayName("تاریخ اضافه شدن رستوران ")]
+    public DateTime OpeningDate { get; set; }
 }

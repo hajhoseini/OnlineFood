@@ -1,8 +1,8 @@
 ﻿using OnlineFood.Common.Enums;
 
-namespace OnlineFood.Application.Dtos.Orders;
+namespace OnlineFood.Application.DTOs.Orders;
 
-public class OrderDto
+public class OrderDTO
 {
     public int Id { get; set; }
     public int Code { get; set; }

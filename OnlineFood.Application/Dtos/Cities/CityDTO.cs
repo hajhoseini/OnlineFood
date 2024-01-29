@@ -1,8 +1,8 @@
-﻿using OnlineFood.Application.Dtos.Province;
+﻿using OnlineFood.Application.DTOs.Province;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace OnlineFood.Application.Dtos.Cities;
+namespace OnlineFood.Application.DTOs.Cities;
 
 public class CityDTO
 {

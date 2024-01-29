@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Users;
+using OnlineFood.Application.DTOs.Users;
 using OnlineFood.Application.Services.Users.Commands;
 using System.Security.Claims;
 
@@ -26,7 +26,7 @@ public class UserController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Login(LoginDto dto)
+    public async Task<IActionResult> Login(LoginDTO dto)
     {
         if (User.Identity.IsAuthenticated)
             return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));

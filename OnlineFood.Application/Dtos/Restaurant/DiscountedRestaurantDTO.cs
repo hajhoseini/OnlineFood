@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace OnlineFood.Application.Dtos.Restaurant
+namespace OnlineFood.Application.DTOs.Restaurant;
+
+public class DiscountedRestaurantDTO
 {
-    public class DiscountedRestaurantDTO
-    {
-        [DisplayName("نام رستوران")]
-        public string Name { get; set; }
-        [DisplayName("درصد تخفیف")]
-        public decimal DiscountPercentage { get; set; }
-    }
+    [DisplayName("نام رستوران")]
+    public string Name { get; set; }
+
+    [DisplayName("درصد تخفیف")]
+    public decimal DiscountPercentage { get; set; }
 }

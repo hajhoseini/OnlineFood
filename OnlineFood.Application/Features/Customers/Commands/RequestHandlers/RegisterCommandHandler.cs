@@ -10,7 +10,7 @@ using OnlineFood.Domain.IRepositories;
 
 namespace OnlineFood.Application.Features.Customers.Commands.RequestHandlers;
 
-public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResultDto>
+public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResultDTO>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -23,22 +23,22 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResultDto
         _userReader = userReader;
     }
 
-    public async Task<ResultDto> Handle(RegisterCommand request, CancellationToken cancellationToken)
+    public async Task<ResultDTO> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
-        ResultDto resultDto;
+        ResultDTO resultDTO;
 
         //چک تکراری نبودن نام کاربری
         var allUser = await _userReader.GetList(null);
         int count = allUser.Where(p => p.UserName == request.register.MobileNumber).Count();
         if (count > 0)
         {
-            resultDto = new ResultDto()
+            resultDTO = new ResultDTO()
             {
                 IsSuccess = false,
                 Message = "شماره موبایل وارد شده تکراری است"
             };
 
-            return resultDto;
+            return resultDTO;
         }
 
         //درج کاربر
@@ -66,11 +66,11 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResultDto
         customerEntity.LastName = "";
         result = await _unitOfWork.GenericReposity<Customer>().Create(customerEntity);
 
-        resultDto = new ResultDto()
+        resultDTO = new ResultDTO()
         {
             IsSuccess = true,
         };
 
-        return resultDto;
+        return resultDTO;
     }
 }

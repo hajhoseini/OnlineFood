@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace OnlineFood.Application.Dtos.Users;
+namespace OnlineFood.Application.DTOs.Users;
 
 public class ChangePasswordDTO
 {

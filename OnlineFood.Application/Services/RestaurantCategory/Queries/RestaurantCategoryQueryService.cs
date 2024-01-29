@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using OnlineFood.Application.Dtos.RestaurantCategory;
+using OnlineFood.Application.DTOs.RestaurantCategory;
 using OnlineFood.Domain.Entities.RestaurantCategories;
 using OnlineFood.Domain.IReaders.RestaurantCategories;
 using System.Linq;

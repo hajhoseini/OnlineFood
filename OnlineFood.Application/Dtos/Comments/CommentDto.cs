@@ -1,8 +1,8 @@
 ﻿using OnlineFood.Common.Enums;
 
-namespace OnlineFood.Application.Dtos.Comments;
+namespace OnlineFood.Application.DTOs.Comments;
 
-public class CommentDto
+public class CommentDTO
 {
     public int Id { get; set; }
     public int RestaurantId { get; set; }

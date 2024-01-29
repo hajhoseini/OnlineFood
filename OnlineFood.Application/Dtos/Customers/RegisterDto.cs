@@ -1,6 +1,6 @@
-﻿namespace OnlineFood.Application.Dtos.Customers;
+﻿namespace OnlineFood.Application.DTOs.Customers;
 
-public class RegisterDto
+public class RegisterDTO
 {
     public string MobileNumber { get; set; }
     public string Email { get; set; }

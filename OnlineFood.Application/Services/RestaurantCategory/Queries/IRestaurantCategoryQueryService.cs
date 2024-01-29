@@ -1,4 +1,4 @@
-﻿using OnlineFood.Application.Dtos.RestaurantCategory;
+﻿using OnlineFood.Application.DTOs.RestaurantCategory;
 
 namespace OnlineFood.Application.Services.RestaurantCategory.Queries;
 

@@ -7,7 +7,7 @@ using OnlineFood.Domain.InterfaceRepositories.Customers;
 
 namespace OnlineFood.Application.Features.Customers.Commands.RequestHandlers;
 
-public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, ResultDto>
+public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, ResultDTO>
 {
 	private readonly ICustomerRepository _CustomerRepository;
 	private readonly IMapper _mapper;
@@ -18,20 +18,20 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 		this._mapper = mapper;
 	}
 
-	public async Task<ResultDto> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
+	public async Task<ResultDTO> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
 	{
 		var entity = _mapper.Map<Customer>(request.customer);
 		bool result = await _CustomerRepository.Update(entity);
 
-		ResultDto resultDto = new ResultDto();
+		ResultDTO resultDTO = new ResultDTO();
 
-		resultDto.IsSuccess = result;
+		resultDTO.IsSuccess = result;
 
         if (!result)
 		{
-			resultDto.Message = "خطایی در ویرایش رخ داده است";
+			resultDTO.Message = "خطایی در ویرایش رخ داده است";
         }
 
-        return resultDto;        
+        return resultDTO;        
 	}
 }

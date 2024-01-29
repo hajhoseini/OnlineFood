@@ -1,6 +1,6 @@
-﻿namespace OnlineFood.Application.Dtos.Users;
+﻿namespace OnlineFood.Application.DTOs.Users;
 
-public class LoginDto
+public class LoginDTO
 {
     public string  Username { get; set; }
     public string password { get; set; }

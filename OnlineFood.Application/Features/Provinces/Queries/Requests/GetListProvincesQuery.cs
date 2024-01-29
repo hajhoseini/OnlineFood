@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using OnlineFood.Application.Dtos.Province;
+using OnlineFood.Application.DTOs.Province;
 
 namespace OnlineFood.Application.Features.Provinces.Queries.Requests;
 
