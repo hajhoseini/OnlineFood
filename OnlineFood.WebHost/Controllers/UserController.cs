@@ -1,92 +1,54 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.DTOs.Users;
-using OnlineFood.Application.Services.Users.Commands;
-using System.Security.Claims;
+using OnlineFood.Application.Features.Users.Commands.Requests;
+using OnlineFood.Application.Features.Users.Queries.Requests;
 
 namespace OnlineFood.WebHost.Controllers;
 
-public class UserController : Controller
+[ApiController]
+[Route("[controller]")]
+public class UserController : ControllerBase
 {
-    private readonly IUserCommandService _userCommandService;
+	private readonly IMediator mediator;
 
-    public UserController(IUserCommandService UserCommandService)
-    {
-        _userCommandService = UserCommandService;
-    }
+	public UserController(IMediator mediator)
+	{
+		this.mediator = mediator;
+	}
 
+	[HttpGet]
+	public async Task<IActionResult> GetListUsers([FromBody] GetListUsersQuery query)
+	{
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> Login()
-    {
-        if (User.Identity.IsAuthenticated)
-            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-        return View(nameof(Login));
-    }
+	[HttpGet("{id}")]
+	public async Task<IActionResult> GetUserById(int id)
+	{
+		GetUserQuery query = new GetUserQuery() { Id = id };
+		var result = await mediator.Send(query);
+		return Ok(new { Data = result });
+	}
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Login(LoginDTO dto)
-    {
-        if (User.Identity.IsAuthenticated)
-            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-        var result = await _userCommandService.Login(dto);
-        if (result == true)
-            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-        return View();
-    }
+	[HttpPost]
+	public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> Logout()
-    {
-        await _userCommandService.SignOutAsync();
-        return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-    }
+	[HttpPut]
+	public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 
-    [HttpGet]
-    public async Task<IActionResult> New()
-    {
-        if (User.Identity.IsAuthenticated)
-            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-        return View();
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> New(RegisterViewModel dto)
-    {
-        if (User.Identity.IsAuthenticated)
-            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-        var result = await _userCommandService.Register(dto);
-        if (result == true)
-            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-        return View();
-    }
-
-    [HttpGet]
-    [Authorize]
-    public async Task<IActionResult> ChangePassword()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    [Authorize]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> ChangePassword(ChangePasswordDTO dto)
-    {
-        dto.id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        dto.UserName = User.FindFirstValue(ClaimTypes.Name);
-        dto.Email = User.FindFirstValue(ClaimTypes.Email);
-        var result = await _userCommandService.ChangePassword(dto);
-        if (result == true)
-            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
-        return View();
-    }
-
-    [HttpGet]
-    public IActionResult AccessDenied()
-    {
-        return View();
-    }
+	[HttpDelete]
+	public async Task<IActionResult> DeleteUser([FromBody] DeleteUserCommand command)
+	{
+		var result = await mediator.Send(command);
+		return Ok(new { Data = result });
+	}
 }

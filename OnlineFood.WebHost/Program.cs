@@ -1,5 +1,4 @@
 using MediatR;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineFood.Application;
@@ -29,29 +28,15 @@ builder.Services.AddDbContext<OnlineFoodDBConext>(opt =>
 
 
 builder.Services.AddIdentity<User, Role>(options =>
-    {
-        options.Password.RequireDigit = true;
-        options.Password.RequiredLength = 8;
-        options.Stores.ProtectPersonalData = false;
-        options.Password.RequireUppercase = false;
-        options.Password.RequireLowercase = false;
-    }).AddEntityFrameworkStores<OnlineFoodDBConext>()
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 8;
+    options.Stores.ProtectPersonalData = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+}).AddEntityFrameworkStores<OnlineFoodDBConext>()
     .AddDefaultTokenProviders();
 
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    options.AccessDeniedPath = "/User/AccessDenied";
-    options.Cookie.Name = "OnlineFood";
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-    options.LoginPath = "/User/Login";
-    // ReturnUrlParameter requires 
-    //using Microsoft.AspNetCore.Authentication.Cookies;
-    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-    options.SlidingExpiration = true;
-});
-
-builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
@@ -68,8 +53,8 @@ app.UseStaticFiles();
 app.UseCors();
 app.UseRouting();
 
-app.UseAuthentication();
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
