@@ -19,12 +19,19 @@ namespace OnlineFood.WebHost.Controllers
 
         public async Task<IActionResult> Index()
         {
-            GetCustomerQuery query = new GetCustomerQuery() { Id = 1 };
-            var result = await mediator.Send(query);
+            if(User.Identity.IsAuthenticated)
+            {
+                GetCustomerQuery query = new GetCustomerQuery() { Id = 1 };
+                var result = await mediator.Send(query);
 
-            //ViewBag.FullName = result.FirstName + " " + result.LastName;
+                //ViewBag.FullName = result.FirstName + " " + result.LastName;
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
