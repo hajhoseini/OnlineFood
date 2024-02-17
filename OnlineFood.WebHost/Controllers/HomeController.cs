@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using OnlineFood.Application.Features.Customers.Queries.Requests;
 using OnlineFood.WebHost.Models;
 using System.Diagnostics;
 
@@ -7,19 +9,21 @@ namespace OnlineFood.WebHost.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMediator mediator;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IMediator mediator)
         {
-            _logger = logger;
+            _logger = logger;            
+            this.mediator = mediator;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
+            GetCustomerQuery query = new GetCustomerQuery() { Id = 1 };
+            var result = await mediator.Send(query);
 
-        public IActionResult Privacy()
-        {
+            //ViewBag.FullName = result.FirstName + " " + result.LastName;
+
             return View();
         }
 

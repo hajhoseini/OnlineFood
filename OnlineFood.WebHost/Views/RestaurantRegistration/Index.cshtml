@@ -1,0 +1,163 @@
+﻿@using OnlineFood.Common.Enums
+@{
+    Layout = null;
+}
+@model OnlineFood.Application.DTOs.Restaurant.RegisterRestaurantDTO
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>صفحه ثبت نام رستوران</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/adminlte.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/wwwroot/AdminTemplate/plugins/iCheck/square/blue.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <!-- bootstrap rtl -->
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/custom-style.css">
+</head>
+<body class="hold-transition login-page">
+    <div class="register-box">
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        <div class="register-logo">
+            <a asp-controller="Restaurant" asp-action="Register">ثبت نام رستوران</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+
+                <form role="form" asp-action="Register" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            @* <label asp-for="password"></label> *@
+                            @* <input type="password" class="form-control" asp-for="password" /> *@
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CategoryId"></label>
+                            <select class="form-control" name="category">
+                                <option selected disabled>انتخاب</option>
+                                <option>گزینه ۲</option>
+                                <option>گزینه ۳</option>
+                                <option>گزینه ۴</option>
+                                <option>گزینه ۵</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MobileNumber"></label>
+                            <input type="text" class="form-control" name="mobileNumber">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Banner"></label>
+                            <div class="input-group">
+                                <input type="file" class="" name="banner">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ManagerFullName"></label>
+                            <input type="text" class="form-control" asp-for="ManagerFullName">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ManagerPhoneNumber"></label>
+                            <input type="text" class="form-control" asp-for="ManagerPhoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CreditAccountNumber"></label>
+                            <input type="text" class="form-control" asp-for="CreditAccountNumber">
+                        </div>
+                        <div class="form-group">
+                            <label>استان</label>
+                            <select class="form-control" name="province">
+                                <option selected disabled>انتخاب</option>
+                                <option>گزینه ۲</option>
+                                <option>گزینه ۳</option>
+                                <option>گزینه ۴</option>
+                                <option>گزینه ۵</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CityId"></label>
+                            <select class="form-control" asp-for="CityId">
+                                <option selected disabled>انتخاب</option>
+                                <option>گزینه ۲</option>
+                                <option>گزینه ۳</option>
+                                <option>گزینه ۴</option>
+                                <option>گزینه ۵</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MinimumOrderPrice"></label>
+                            <input type="text" class="form-control" name="minimumOP">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PayModels">روش پرداخت</label><span>:</span>
+                            @foreach (var c in System.Enum.GetValues<PayModelEnum>())
+                            {
+                                <input class="" type="radio" value="@c" asp-for="PayModels">
+                                <label class="">@c</label>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SendToOutOfArea"></label><span> : </span>
+                            <input class="" type="radio" value="true" name="sendOutArea">
+                            <label class="">دارد</label>
+                            <input class="" type="radio" value="false" name="sendOutArea">
+                            <label class="">ندارد</label>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description"></label>
+                            <textarea class="form-control" rows="3" name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IntroduceWay"></label>
+                            <select class="form-control" name="interduced" asp-items="Html.GetEnumSelectList<IntroduceWayEnum>()">
+                                <option selected disabled>انتخاب</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">ارسال</button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+    <!-- jQuery -->
+    <script src="/AdminTemplate/plugins/jquery/jquery.min.js"></script>
+    <script src="/AdminTemplate/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/AdminTemplate/plugins/iCheck/icheck.min.js"></script>
+
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            })
+        })
+    </script>
+</body>
+</html>

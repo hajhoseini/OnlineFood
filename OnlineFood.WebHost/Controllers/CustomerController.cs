@@ -14,8 +14,7 @@ public class CustomerController : Controller
     {
         this.mediator = mediator;
     }
-
-    [HttpGet("{id}")]
+    
     public async Task<IActionResult> Edit(int id)
     {
         GetCustomerQuery query = new GetCustomerQuery() { Id = id };
@@ -28,6 +27,6 @@ public class CustomerController : Controller
     {
         UpdateCustomerCommand command = new UpdateCustomerCommand { customer = dto };
         var result = await mediator.Send(command);
-        return Ok(new { Data = result });
+        return RedirectToAction("Index", "Home");
     }
 }

@@ -34,13 +34,13 @@
         }
 
         <div class="register-logo">
-            <a asp-controller="Restaurant" asp-action="Register">ثبت نام رستوران</a>
+            <a asp-controller="Restaurant" asp-action="Register">ثبت نام</a>
         </div>
 
         <div class="card">
             <div class="card-body register-card-body">
 
-                <form role="form" method="post" asp-controller="Register" asp-action="Create">
+                <form role="form" method="post" asp-action="Register">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" id="MobileNumber" name="MobileNumber" asp-for="MobileNumber" placeholder="شماره موبایل" required="required" autocomplete="on" oninvalid="setCustomValidity('شماره موبایل اجباری است')" onkeyup="setCustomValidity('')">
                         <div class="input-group-append">

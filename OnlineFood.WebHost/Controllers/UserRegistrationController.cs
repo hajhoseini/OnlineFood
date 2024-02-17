@@ -6,22 +6,22 @@ using OnlineFood.Common;
 
 namespace OnlineFood.WebHost.Controllers
 {
-    public class RegisterController : Controller
+    public class UserRegistrationController : Controller
     {
         private readonly IMediator _mediator;
 
-        public RegisterController(IMediator mediator)
+        public UserRegistrationController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         public IActionResult Index()
         {
-            return View("Create");
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(RegisterDTO dto)
+        public async Task<IActionResult> Register(RegisterDTO dto)
         {
             ResultDTO result = await _mediator.Send(new RegisterCommand() { register = dto });
             if(!result.IsSuccess)
