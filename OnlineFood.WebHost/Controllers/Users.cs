@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Users;
+using OnlineFood.Application.DTOs.Users;
 using OnlineFood.Application.Services.Users.Commands;
 
 namespace OnlineFood.WebHost.Controllers;
@@ -20,7 +20,7 @@ public class Users : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Index(LoginDto login)
+    public async Task<IActionResult> Index(LoginDTO login)
     {
         var result = await _userCommandService.Login(login);
         if (result == true)

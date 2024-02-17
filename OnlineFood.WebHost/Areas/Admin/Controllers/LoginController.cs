@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineFood.Application.Dtos.Users;
+using OnlineFood.Application.DTOs.Users;
 using OnlineFood.Application.Features.Users.Queries.Requests;
 
 namespace OnlineFood.WebHost.Areas.Controllers;
@@ -22,7 +22,7 @@ public class LoginController : Controller
 	}
 
 	[HttpPost]
-	public async Task<IActionResult> Index(LoginDto dto)
+	public async Task<IActionResult> Index(LoginDTO dto)
 	{
 		/*var res = await _mediator.Send(new LoginQuery() { login = dto });
 		if (res == false)
